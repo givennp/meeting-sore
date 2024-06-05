@@ -3,31 +3,53 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: #dbdbdb;
+  --background-start-rgb: #000000;
+  --background-end-rgb: #dbdbdb;
+  --default-font: var(--neue-montreal), sans-serif;
+  /* --neue-montreal: 'Neue Montreal', sans-serif; */
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--foreground-rgb);
+  overflow-x: hidden;
+  /* background-image: url('../../public/noise.png'); */
+}
+
+body::before {
+  content: "";
+  background-image: url("../../public/noise.png"); /* Your background image */
+  opacity: 0.07; /* Adjust opacity as needed (0.3 for 30% opacity) */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; /* Place the pseudo-element behind other content */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.animonItem {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 1200ms 200ms cubic-bezier(0.5, 1, 0.89, 1),
+    transform 1200ms 200ms cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.animonItem.is-visible {
+  opacity: 1;
+}
+
+.animonItem[data-effect="fadeInUp"] {
+  transform: translateY(2rem);
+
+  &.is-visible {
+    transform: translateY(0);
   }
 }
