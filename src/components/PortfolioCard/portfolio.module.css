@@ -1,0 +1,4 @@
+/* In your global stylesheet or a CSS module */
+.group {
+    animation-duration: 400ms;
+}

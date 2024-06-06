@@ -19,14 +19,17 @@ body {
 
 body::before {
   content: "";
-  background-image: url("../../public/noise.png"); /* Your background image */
-  opacity: 0.07; /* Adjust opacity as needed (0.3 for 30% opacity) */
+   background-image: url("../../public/noise.png"); /* Adjust the path as needed */
+  background-repeat: repeat; /* Ensure the background image repeats */
+  background-size: contain; /* Adjust if needed for your specific image */
+  opacity: 0.1; /* Adjust opacity as needed (0.07 for 7% opacity) */
+  position: fixed; /* Use fixed to ensure it covers the entire body */
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
+  width: 100%;
+  height: 100%;
   z-index: -1; /* Place the pseudo-element behind other content */
+  pointer-events: none; /* Ensure it doesn't interfere with clicks */
 }
 
 @layer utilities {

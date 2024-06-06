@@ -30,9 +30,7 @@ const Contact = () => {
         const body = encodeURIComponent("");
         const url = `https://mail.google.com/mail/?view=cm&fs=1&su=${subject}&to=${recipient}&body=${body}`;
         window.open(url, "_blank", "width=800,height=600");
-
         break;
-
       default:
         break;
     }
