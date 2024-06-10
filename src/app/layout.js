@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
 import { neue_montreal } from "@/utils/fonts";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar/";
 
 export const metadata = {
   title: "Create Next App",

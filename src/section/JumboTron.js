@@ -6,7 +6,7 @@ import parallaxImage from "../../public/foto1.jpg";
 const JumboTron = () => {
   return (
     <>
-      <div className="h-[100vh] max-h-[720px] sticky top-0 -z-10">
+      <div className="h-[100vh] sticky top-0 -z-10">
         <Image
           src={parallaxImage}
           style={{
