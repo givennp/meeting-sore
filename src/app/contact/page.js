@@ -44,7 +44,7 @@ const Contact = () => {
             className="animonItem text-title-03 mb-16 max-md:text-heading-02 max-md:mb-12"
             data-effect="fadeInUp"
           >
-            Start your brand's creative journey with{" "}
+            Start your brand&apos;s creative journey with{" "}
             <span className="text-primary-brand">Meeting Sore</span>
           </div>
           <div className="">
