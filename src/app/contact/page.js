@@ -4,13 +4,20 @@ import "../globals.css";
 import image1 from "../../../public/jalanan.jpeg";
 import Image from "next/image";
 import Button from "@/components/Buttons/Button";
-import { animon } from "animon";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 
+const animon = dynamic(() => import("animon").then((mod) => mod.animon), {
+  ssr: false,
+});
 const Contact = () => {
   useEffect(() => {
-    animon();
+    // Ensure this runs only in the client environment
+    if (typeof window !== "undefined") {
+      animon();
+    }
   }, []);
+
 
   const openApp = (app) => {
     switch (app) {
