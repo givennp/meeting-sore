@@ -7,7 +7,8 @@
   --background-start-rgb: #000000;
   --background-end-rgb: #dbdbdb;
   --default-font: var(--neue-montreal), sans-serif;
-  /* --neue-montreal: 'Neue Montreal', sans-serif; */
+  --animation-duration: 1s; /* Default duration */
+
 }
 
 body {
@@ -19,7 +20,7 @@ body {
 
 body::before {
   content: "";
-   background-image: url("../../public/noise.png"); /* Adjust the path as needed */
+  background-image: url("../../public/noise.png"); /* Adjust the path as needed */
   background-repeat: repeat; /* Ensure the background image repeats */
   background-size: contain; /* Adjust if needed for your specific image */
   opacity: 0.1; /* Adjust opacity as needed (0.07 for 7% opacity) */

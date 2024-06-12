@@ -11,14 +11,7 @@ a::after {
   width: 100%;
   left: 0;
 }
-/* a::before {
-  background-color: #FD5D01;
-  height: 2px;
-  bottom: 0;
-  transform-origin: 100% 50%;
-  transform: scaleX(0);
-  transition: transform 4.s;
-} */
+
 a::after {
   content: attr(data-replace);
   text-decoration: underline;

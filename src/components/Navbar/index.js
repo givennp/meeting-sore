@@ -8,20 +8,8 @@ const Navbar = () => {
   return (
     <>
       <div className="h-[72px] mix-blend-difference flex sticky top-0 z-50 justify-between items-center container">
-        <Link className="relative mix-blend-difference" href="/">
-          <div className="relative mix-blend-difference">
-            {/* Overlay with mix-blend-mode */}
-            <div className=" inset-0 ">
-              <Image
-                width={92}
-                height={24}
-                src={logo}
-                layout="fixed"
-                alt="Logo"
-                className=""
-              />
-            </div>
-          </div>
+        <Link href="/">
+          <Image width={92} height={24} src={logo} layout="fixed" className="mix-blend-difference" alt="Logo" />
         </Link>
         <div className="flex gap-x-6 max-md:hidden">
           <Button link="/portfolio">PORTFOLIO</Button>

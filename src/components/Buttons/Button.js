@@ -9,7 +9,7 @@ const Button = ({link = "", children, func}) => {
             onClick={func}
             data-replace={children}
           >
-            <span className="mix-blend-normal text-white" >{children}</span>
+            <span className="text-white" >{children}</span>
           </Link>
       </>
     );
