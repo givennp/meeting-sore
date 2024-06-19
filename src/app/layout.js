@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${neue_montreal} font-neue-montreal`}>
-        <Navbar/>
+        <Navbar />
         <div className="">{children}</div>
       </body>
     </html>

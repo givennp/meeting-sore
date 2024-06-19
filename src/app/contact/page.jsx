@@ -96,7 +96,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="absolute md:bottom-0">
-            <FadeInUpText duration="2.4s">
+            <FadeInUpText duration="2.4`s">
               <div className="text-subheading-03 max-md:text-subheading-05 font-medium mb-2">
                 PT. Bertemu Sore Hari | Meeting Sore Studio
               </div>
