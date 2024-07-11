@@ -4,7 +4,7 @@ import triangleIcon from "../../../public/triangle.svg";
 import "./portfolio.module.css";
 import { useState } from "react";
 
-const PortfolioCard = () => {
+const PortfolioCard = ({isActive}) => {
   const [isHover, setIsHover] = useState(false);
   return (
     <>
@@ -38,11 +38,19 @@ const PortfolioCard = () => {
               marginRight: "12px",
             }}
           >
-            <img
-              src="/triangle.svg"
-              className="group-hover:fill-white duration-[400ms]"
-              style={{ width: "12px", height: "9px" }}
-            />
+            <svg
+              width="12"
+              height="10"
+              viewBox="0 0 12 10"
+              // fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6 0.5L12 9.5L0 9.5L6 0.5Z"
+                fill="#fff"
+                className={`group-hover:fill-black duration-[400ms]`}
+              />
+            </svg>
           </div>
           <div>
             <p className="text-body-05 text-neutral-100">Social Media</p>

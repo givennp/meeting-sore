@@ -9,22 +9,40 @@ import JumboTron from "../section/JumboTron";
 import PortfolioCard from "@/components/PortfolioCard";
 import portfolio from "../../public/portfolio.jpg";
 import Input from "@/components/Input";
+import Marquee from "@/components/Marquee";
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
+import PortfolioSection from "@/section/portfolio";
+import ExpertiseCard from "@/components/ExpertiseCard";
+import ExpertiseSection from "@/section/ExpertiseSection";
+import Button from "@/components/Buttons/Button";
+import RoundedButton from "@/components/RoundedButtons";
 
 const Home = () => {
+  const [activeSection, setActiveSection] = useState("");
+  useIntersectionObserver(setActiveSection);
+  useEffect(() => {
+    console.log(activeSection);
+  }, []);
+
   return (
     <>
       <section className="h-[445px]"></section>
-
       <div className="max-h-[200vh] mb-44">
         <JumboTron />
       </div>
+      {/* Marquee Section */}
+      {/* <Marquee /> */}
+      {/* Expertise Section */}
+      <ExpertiseSection />
+      {/* Portfolio Section */}
 
-      <div className="flex gap-10 container">
-        <PortfolioCard />
-        <PortfolioCard />
-        <PortfolioCard />
+      <div>PREVIOUS WORKS</div>
+      <div className="rounded-full">
+        <RoundedButton>ALL</RoundedButton>
       </div>
 
+      <PortfolioSection activeSection={activeSection} />
+      {/* FORM SECTION */}
       <section className="bg-black h-[880px] flex gap-[136px]">
         <div className="min-w-[374px] flex justify-end relative">
           <Image
@@ -60,7 +78,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <section className="h-[445px]"></section>
     </>
   );
