@@ -1,24 +1,22 @@
 import Image from "next/image";
 import image1 from "../../public/jalanan.jpeg";
 import logo from "../../public/logo.svg";
-import parallaxImage from "../../public/foto1.jpg";
+import parallaxImage from "../../public/jumboTron.png";
 
 const JumboTron = () => {
   return (
     <>
-      <div className="h-[100vh] sticky top-0 -z-10">
         <Image
           src={parallaxImage}
           style={{
             width: "100%",
-            height: "100%",
+            height: "100vh",
             objectFit: "cover",
             position: "sticky",
-            top: "90px",
-            zIndex: "-1",
+            top: "0",
+            zIndex: "-10",
           }}
         />
-      </div>
       <section className="bg-black h-[100vh] pl-16 flex">
         <div className="md:text-title-03 text-gray-100 pt-24 mr-16 flex-auto w-[300px]">
           Jakarta & Bali based boutique{" "}

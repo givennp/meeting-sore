@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const useIntersectionObserver = (setActiveSection) => {
+const useIntersectionObserver = (sectionId, setActiveSection) => {
   useEffect(() => {
     const options = {
       root: null,
@@ -10,14 +10,16 @@ const useIntersectionObserver = (setActiveSection) => {
 
     const callback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.boundingClientRect.top < entry.rootBounds.top || entry.isIntersecting) {
           setActiveSection(entry.target.id);
+        } else {
+          setActiveSection(""); // Reentered from the top
         }
       });
     };
 
     const observer = new IntersectionObserver(callback, options);
-    const target = document.querySelector("#section1");
+    const target = document.querySelector(`#${sectionId}`);
 
     if (target) {
       observer.observe(target);

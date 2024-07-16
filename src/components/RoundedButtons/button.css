@@ -1,18 +1,19 @@
-a {
+#rounded-button {
   overflow: hidden;
   position: relative;
   display: inline-block;
+  padding: 4px 12px;
 }
 
-a::before,
-a::after {
- content: '';
+#rounded-button::before,
+#rounded-button::after {
+  content: '';
   position: absolute;
   width: 100%;
   left: 0;
 }
 
-a::after {
+#rounded-button::after {
   content: attr(data-replace);
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -21,23 +22,48 @@ a::after {
   top: 0;
   transform-origin: 100% 50%;
   transform: translate3d(0, 200%, 0);
-  transition: transform .4s ;
-  color: #FD5D01;
+  transition: transform .4s;
+  padding: 4px 12px;
+  color: #000000;
+
 }
 
-a:hover::before {
+#rounded-button:hover::before {
   transform-origin: 0% 50%;
   transform: scaleX(1);
 }
-a:hover::after {
+
+#rounded-button:hover::after {
   transform: translate3d(0, 0, 0);
 }
 
-a span {
+#rounded-button span {
   display: inline-block;
   transition: transform .5s;
 }
 
-a:hover span {
+#rounded-button:hover span {
   transform: translate3d(0, -200%, 0);
 }
+
+/* Active state styles */
+#rounded-button.active {
+  background-color: black;
+}
+
+#rounded-button.active span,
+#rounded-button.active::after,
+#rounded-button.active::before {
+  transition: none; /* Disable transitions */
+  transform: none; /* Disable animations */
+  color: #FD5D01
+}
+
+#rounded-button.active:hover span,
+#rounded-button.active:hover::after,
+#rounded-button.active:hover::before {
+  transition: none; /* Disable transitions */
+  transform: none; /* Disable animations */
+}
+
+

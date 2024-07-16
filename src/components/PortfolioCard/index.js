@@ -4,16 +4,11 @@ import triangleIcon from "../../../public/triangle.svg";
 import "./portfolio.module.css";
 import { useState } from "react";
 
-const PortfolioCard = ({isActive}) => {
-  const [isHover, setIsHover] = useState(false);
+const PortfolioCard = () => {
   return (
     <>
-      <div
-        className="h-[520px] group"
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-      >
-        <div className="w-[414px] h-[448px] duration-[400ms] group-hover:h-[376px] relative overflow-hidden mb-4">
+      <div className="h-[520px] group sm:w-[256px] md:w-[320px] lg:w-[414px]">
+        <div className="w-full  h-[448px] sm:h-[276px] md:h-[340px] lg:h-[448px] duration-[400ms] group-hover:h-[376px] relative overflow-hidden mb-4">
           <div className="absolute h-[448px] inset-0 transition-transform duration-[400ms] group-hover:scale-125 ">
             <Image
               src={portfolio}
