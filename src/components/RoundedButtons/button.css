@@ -51,19 +51,23 @@
   background-color: black;
 }
 
-#rounded-button.active span,
-#rounded-button.active::after,
-#rounded-button.active::before {
+#rounded-button.active span {
+  transform: translate3d(0, -200%, 0); /* Stay in place */
   transition: none; /* Disable transitions */
-  transform: none; /* Disable animations */
-  color: #FD5D01
+}
+
+#rounded-button.active::before,
+#rounded-button.active::after {
+  transform: translate3d(0, 0, 0); /* Stay in place */
+  color: #FD5D01; /* Active color */
+  transition: none; /* Disable transitions */
 }
 
 #rounded-button.active:hover span,
 #rounded-button.active:hover::after,
 #rounded-button.active:hover::before {
+  transform: translate3d(0, 0, 0); /* Stay in place */
   transition: none; /* Disable transitions */
-  transform: none; /* Disable animations */
 }
 
 

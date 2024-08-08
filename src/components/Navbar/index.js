@@ -7,8 +7,8 @@ import Button from "../Buttons/Button";
 const Navbar = () => {
   return (
     <>
-      <div className=" w-full mix-blend-difference backdrop-blur-md  fixed top-0 z-50">
-        <div className="container h-[72px] flex justify-between items-center">
+      <div className=" w-full h-[72px] mix-blend-difference backdrop-blur-md fixed top-0 z-50">
+        <div className="container h-full  flex justify-between items-center">
           <Link href="/">
             <Image
               width={92}
@@ -19,7 +19,7 @@ const Navbar = () => {
               alt="Logo"
             />
           </Link>
-          <div className="flex gap-x-6 max-md:hidden">
+          <div className="flex gap-x-6 max-md:hidden text-white">
             <Button link="/portfolio">PORTFOLIO</Button>
             <Button link="/about">ABOUT</Button>
             <Button link="/contact">CONTACT US</Button>

@@ -12,9 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${neue_montreal} font-neue-montreal`}>
+      <body className={`${neue_montreal} font-neue-montreal `}>
         <Navbar />
-        <div className="">{children}</div>
+        <div className="">
+          {children}
+        </div>
       </body>
     </html>
   );

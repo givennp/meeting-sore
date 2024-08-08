@@ -2,21 +2,12 @@ import Link from "next/link";
 import "./button.css";
 import { useState } from "react";
 
-const RoundedButton = ({ link = "", children, func }) => {
-  const [isActive, setIsActive] = useState(false);
-
-  const handleClick = (e) => {
-      setIsActive(() => !isActive);
-      if (func) {
-        func(e);
-      }
-    
-  };
+const RoundedButton = ({ isActive, children, onClick }) => {
 
   return (
     <>
       <div
-        onClick={handleClick}
+        onClick={onClick}
         data-replace={children}
         id="rounded-button"
         className={`border border-black rounded-3xl

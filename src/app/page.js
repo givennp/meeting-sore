@@ -22,6 +22,7 @@ const Home = () => {
 
   return (
     <>
+      <div className=" h-[72px] bg-black" />
       <div className="max-h-[200vh] mb-44">
         <JumboTron />
       </div>
@@ -32,7 +33,7 @@ const Home = () => {
       {/* Portfolio Section */}
       <PortfolioSection />
       {/* FORM SECTION */}
-      <FormSection/>
+      <FormSection />
 
       <section className="h-[445px]"></section>
     </>

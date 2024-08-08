@@ -9,7 +9,7 @@ const Button = ({link = "", children, func}) => {
             onClick={func}
             data-replace={children}
           >
-            <span className="text-white" >{children}</span>
+            <span className="" >{children}</span>
           </Link>
       </>
     );
