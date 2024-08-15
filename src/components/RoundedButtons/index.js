@@ -10,7 +10,7 @@ const RoundedButton = ({ isActive, children, onClick }) => {
         onClick={onClick}
         data-replace={children}
         id="rounded-button"
-        className={`border border-black rounded-3xl
+        className={`border w-max border-black rounded-3xl max-md:text-caption-01
           ${isActive ? "active" : ""}`}
       >
         <span className="text-black">{children}</span>
