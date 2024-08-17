@@ -27,7 +27,7 @@ const Home = () => {
         <JumboTron />
       </div>
       {/* Marquee Section */}
-      {/* <Marquee /> */}
+      <Marquee />
       {/* Expertise Section */}
       <ExpertiseSection />
       {/* Portfolio Section */}
