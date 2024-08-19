@@ -1,14 +1,22 @@
 import ExpertiseCard from "@/components/ExpertiseCard";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const ExpertiseSection = () => {
+  const [offset, setOffset] = useState("-60%");
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-50%"]);
+   useEffect(() => {
+     if (typeof window !== "undefined") {
+       const newOffset = window.innerWidth < 1280 ? "-130%" : "-60%";
+       setOffset(newOffset);
+     }
+   }, []);
+
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", offset]);
 
   return (
     <section ref={targetRef} className="relative md:h-[200vh] container mb-24">

@@ -53,7 +53,7 @@ const Navbar = () => {
       <div
         className={`${
           isOpen ? "opacity-0" : "opacity-100"
-        } duration-300 w-full h-[72px] mix-blend-difference backdrop-blur-md fixed top-0 z-50`}
+        } duration-300 w-full h-[72px] max-md:h-[64px] mix-blend-difference backdrop-blur-md fixed top-0 z-50`}
       >
         <div className="container h-full  flex justify-between items-center">
           <Link href="/">

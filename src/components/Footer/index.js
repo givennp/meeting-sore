@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="h-[466px] max-md:h-[360px] max-md:pt-[32px] pt-[56px]">
+    <div className="h-[466px] max-md:h-[360px] max-md:pt-[32px] pt-[56px] border-t border-neutral-200">
       <div className="container">
         <div className=" flex justify-between md:h-[314px] max-md:mb-10 max-md:h-[144px]">
           <div className="flex flex-col gap-4">

@@ -7,6 +7,7 @@ import Button from "@/components/Buttons/Button";
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
 import FadeInUpText from "@/components/FadeInUpText";
+import Footer from "@/components/Footer";
 
 const Contact = () => {
   const openApp = (app) => {
@@ -35,8 +36,8 @@ const Contact = () => {
 
   return (
     <>
-      <div className=" h-[72px]" />
-      <div className="container flex justify-items-center mt-[73px] place-content-center w-full">
+      <div className=" h-[72px] max-md:h-[64px]" />
+      <div className="container h-screen flex justify-items-center place-content-center w-full">
         <div className="flex font-medium lg:pl-[111px] h-[498px] max-md:mt-8">
           <div className="max-w-[668px] lg:mr-[111px] relative">
             <FadeInUpText duration="1.5s">
@@ -121,6 +122,9 @@ const Contact = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="max-md:hidden">
+        <Footer />
       </div>
     </>
   );
