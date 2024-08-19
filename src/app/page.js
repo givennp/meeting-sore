@@ -17,6 +17,7 @@ import ExpertiseSection from "@/section/ExpertiseSection";
 import Button from "@/components/Buttons/Button";
 import RoundedButton from "@/components/RoundedButtons";
 import FormSection from "@/section/formSection";
+import Footer from "@/components/Footer";
 
 const Home = () => {
 
@@ -34,8 +35,8 @@ const Home = () => {
       <PortfolioSection />
       {/* FORM SECTION */}
       <FormSection />
-
-      <section className="h-[445px]"></section>
+      {/* Footer */}
+      <Footer/>
     </>
   );
 };
