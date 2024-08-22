@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="h-[466px] max-md:h-[360px] max-md:pt-[32px] pt-[56px] border-t border-neutral-200">
+    <div className="h-[466px] max-md:h-[270px] max-md:pt-[32px] pt-[56px] border-t border-neutral-200">
       <div className="container">
         <div className=" flex justify-between md:h-[314px] max-md:mb-10 max-md:h-[144px]">
           <div className="flex flex-col gap-4">
@@ -31,7 +31,7 @@ const Footer = () => {
               INSTAGRAM
             </Button>
             <Button
-              className="text-body-04 max-md:text-caption-01 min-w-[170px] text-right"
+              className="text-body-04 max-md:text-caption-01 min-w-[170px] max-md:min-w-[100px] text-right"
               className2="text-left"
               onHoverText="linkedin/in/meetingsore"
             >
