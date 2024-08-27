@@ -60,20 +60,20 @@ const PortfolioSection = () => {
           PREVIOUS WORKS
         </div>
 
-        <div className="flex justify-between h-8  mb-[40px] ">
-          <div className=" flex gap-4 items-center justify-center">
+        <div className="flex justify-between h-8 w-full mb-[40px]">
+          <div className="flex flex-wrap flex-col gap-4 items-center justify-center overflow-auto scrolling-wrapper-flexbox">
             <RoundedButton
               onClick={() => filterHandler("1")}
               isActive={active == "1"}
             >
               ALL
-            </RoundedButton>
+            </RoundedButton>{" "}
             <RoundedButton
               onClick={() => filterHandler("2")}
               isActive={active == "2"}
             >
               SOCIAL MEDIA
-            </RoundedButton>
+            </RoundedButton>{" "}
             <RoundedButton
               onClick={() => filterHandler("3")}
               isActive={active == "3"}
