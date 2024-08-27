@@ -1,3 +1,5 @@
+import "./input.css"
+
 const Input = ({ placeholder = "", className = "", textarea = false }) => {
   return (
     <>
