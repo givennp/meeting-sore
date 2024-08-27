@@ -48,7 +48,9 @@ body::before {
     flex-direction: column;
     gap: 16px; /* Assuming gap-4 is equivalent to 1rem (16px) */
     align-items: center;
+    width: 100%;
     justify-content: center;
+    -webkit-overflow-scrolling: touch;
     overflow: auto;
 }
 
