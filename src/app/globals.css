@@ -40,7 +40,7 @@ body::before {
 
 .scrolling-wrapper-flexbox {
   display: -webkit-box;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-pack: center;
   -webkit-box-align: center;
 }
