@@ -37,7 +37,6 @@ body::before {
   backdrop-filter: blur("12px");
   -webkit-backdrop-filter: blur("12px");
 }
-flex flex-wrap flex-col gap-4 items-center justify-center overflow-auto
 
 .scrolling-wrapper-flexbox {
   display: -webkit-box;
