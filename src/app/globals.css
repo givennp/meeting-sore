@@ -50,8 +50,10 @@ body::before {
     align-items: center;
     width: 100%;
     justify-content: center;
+    height: 50px;
     -webkit-overflow-scrolling: touch;
     overflow: auto;
+    padding-bottom: 10px;
 }
 
 @layer utilities {
