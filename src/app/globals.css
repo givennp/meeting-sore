@@ -34,15 +34,22 @@ body::before {
 }
 
 .navbar{
-  backdrop-filter: blur("12px");
-  -webkit-backdrop-filter: blur("12px");
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .scrolling-wrapper-flexbox {
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
+    display: -webkit-box;       /* Fallback for older WebKit-based browsers */
+    display: -ms-flexbox;       /* Fallback for IE10 */
+    display: flex;
+    -webkit-flex-wrap: wrap;    /* WebKit-based browsers */
+    flex-wrap: wrap;
+    -webkit-flex-direction: column; /* WebKit-based browsers */
+    flex-direction: column;
+    gap: 16px; /* Assuming gap-4 is equivalent to 1rem (16px) */
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
 }
 
 @layer utilities {
