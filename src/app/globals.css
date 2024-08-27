@@ -33,6 +33,19 @@ body::before {
   pointer-events: none; /* Ensure it doesn't interfere with clicks */
 }
 
+.navbar{
+  backdrop-filter: blur("12px");
+  -webkit-backdrop-filter: blur("12px");
+}
+flex flex-wrap flex-col gap-4 items-center justify-center overflow-auto
+
+.scrolling-wrapper-flexbox {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
