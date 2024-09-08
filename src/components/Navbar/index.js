@@ -58,11 +58,9 @@ const Navbar = () => {
         <div className="container h-full  flex justify-between items-center">
           <Link href="/">
             <Image
-              width={92}
-              height={24}
               src={logo}
               layout="fixed"
-              className="mix-blend-difference"
+              className="mix-blend-difference w-[92px] h-[24px] max-md:w-[76px] max-md:h-[20px]"
               alt="Logo"
             />
           </Link>

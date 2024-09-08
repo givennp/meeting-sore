@@ -20,11 +20,11 @@ const Marquee = () => {
   //  }, []);
 
   return (
-    <div className="container mb-[154px]">
-      <div className="text-left w-full text-subheading-03 font-medium text-neutral-200 mb-6 ">
+    <div className="container mb-[154px] mt-[52px]">
+      <div className="text-left w-full text-subheading-03 max-md:text-caption-01 font-medium text-neutral-200 mb-6 ">
         TRUSTED BY
       </div>
-      <div class="flex overflow-x-hidden">
+      <div className="flex overflow-x-hidden">
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: "-100%" }}

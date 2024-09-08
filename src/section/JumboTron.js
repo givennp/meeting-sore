@@ -6,6 +6,7 @@ import parallaxImage from "../../public/jumboTron.png";
 const JumboTron = () => {
   return (
     <div className="">
+      <div className=" h-[72px] bg-black sticky top-0" />
       <Image
         src={parallaxImage}
         style={{
@@ -18,12 +19,15 @@ const JumboTron = () => {
           background: "#000",
         }}
       />
-      <section className="bg-black h-[100vh] max-md:min-h-[592px] sm:max-md:h-[700px] max-sm:h-[304px] md:pl-16 flex max-md:flex-col max-md:w-full ">
-        <div className="md:text-title-03 max-sm:text-heading-03 sm:max-md:text-heading-01 max-md:h-[304px] text-gray-100 pt-24 md:mr-16 flex-auto w-[300px] max-md:w-full max-md:pt-10 max-md:container max-md:mb-16">
+      <section id="about-us" className="bg-black h-[100vh] max-md:min-h-[592px] sm:max-md:h-[700px] max-sm:h-[304px] md:pl-16 flex max-md:flex-col max-md:w-full ">
+        <div className="h-full w-full flex items-center">
+
+        <div className=" md:text-title-03 max-sm:text-heading-03 sm:max-md:text-heading-01 max-md:h-[304px] text-gray-100 md:mr-16 flex-auto w-[300px] max-md:w-full max-md:pt-10 max-md:container max-md:mb-16">
           Jakarta & Bali based boutique{" "}
           <span className="text-primary-brand">creative studio</span> who helps
           brands stand out through stunning visual design and compelling
           copywriting, leaving a lasting impression.
+        </div>
         </div>
         <div className="flex-1 md:min-w-[406px] max-md:w-screen max-md:h-[184px] flex justify-end relative">
           <Image

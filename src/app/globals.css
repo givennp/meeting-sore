@@ -41,9 +41,13 @@ body::before {
   /* background-color: rgba(255, 255, 255, 0.5); Ensure a background color */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px); /* Safari-specific support */
-  mix-blend-mode: difference; /* Apply mix-blend-mode */
+  /* mix-blend-mode: difference; Apply mix-blend-mode */
   background-color: transparent;
   z-index: 50;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .scrolling-wrapper-flexbox {
@@ -67,5 +71,12 @@ body::before {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+ @media (hover: none) {
+  /* Disable hover styles on mobile */
+  *:hover {
+    all: unset;
   }
 }

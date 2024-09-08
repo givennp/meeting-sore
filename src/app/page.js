@@ -4,7 +4,7 @@ import Image from "next/image";
 import parallaxImage from "../../public/foto1.jpg";
 import image1 from "../../public/jalanan.jpeg";
 import logo from "../../public/logo.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import JumboTron from "../section/JumboTron";
 import PortfolioCard from "@/components/PortfolioCard";
 import portfolio from "../../public/portfolio.jpg";
@@ -20,11 +20,10 @@ import FormSection from "@/section/formSection";
 import Footer from "@/components/Footer";
 
 const Home = () => {
-
+const sectionRef = useRef(null);
   return (
     <>
-      <div className=" h-[72px] bg-black" />
-      <div className="max-h-[200vh] mb-44">
+      <div className="h-fit">
         <JumboTron />
       </div>
       {/* Marquee Section */}
@@ -34,9 +33,9 @@ const Home = () => {
       {/* Portfolio Section */}
       <PortfolioSection />
       {/* FORM SECTION */}
-      <FormSection />
+      <FormSection ref={sectionRef} />
       {/* Footer */}
-      <Footer/>
+      <Footer scrollToRef={sectionRef} />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import RoundedButton from "@/components/RoundedButtons";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import leftArrow from "../../../public/leftArrow.png";
@@ -25,6 +25,7 @@ const PortfolioSection = () => {
   const swiperRef = useRef();
   const swiper = useSwiper();
   const [active, setActive] = useState("1");
+  const [isMobile, setIsMobile] = useState(false);
 
   useIntersectionObserver("section1", setActiveSection);
 
@@ -44,6 +45,14 @@ const PortfolioSection = () => {
     setActive(btn);
   };
 
+  useEffect(() => {
+    console.log(window.innerWidth);
+
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 960);
+    }
+  }, [isMobile]);
+
   return (
     <div
       id="section1"
@@ -55,13 +64,13 @@ const PortfolioSection = () => {
         <div
           className={`mb-8 font-medium text-subheading-03 ${
             activeSection === "section1" ? "text-white" : "text-neutral-200"
-          } sm:max-md:text-caption-01`}
+          } max-md:text-caption-01`}
         >
           PREVIOUS WORKS
         </div>
 
         <div className="flex justify-between h-8 w-full mb-[40px]">
-          <div className="flex flex-wrap flex-col gap-4 items-center justify-center overflow-auto scrolling-wrapper-flexbox">
+          <div className="flex flex-wrap flex-col gap-4 items-center justify-center md:w-max overflow-auto scrolling-wrapper-flexbox">
             <RoundedButton
               onClick={() => filterHandler("1")}
               isActive={active == "1"}
@@ -87,20 +96,23 @@ const PortfolioSection = () => {
               PRODUCTION
             </RoundedButton>
           </div>
-          <div className="flex items-center justify-center max-md:hidden">
-            <div className="prevPage cursor-pointer">
-              <Image src={leftArrow} onClick={handlePrev} />
+
+          {!isMobile && (
+            <div className="flex items-center justify-center max-md:hidden">
+              <div className="prevPage cursor-pointer">
+                <Image src={leftArrow} onClick={handlePrev} />
+              </div>
+              <div className="mx-2 w-12 text-center swiper-pagination">
+                {/* {currentPage} / {maxPage} */}
+              </div>
+              <div className="nextPage cursor-pointer">
+                <Image src={rightArrow} onClick={handleNext} />
+              </div>
             </div>
-            <div className="mx-2 w-12 text-center swiper-pagination">
-              {currentPage} / {maxPage}
-            </div>
-            <div className="nextPage cursor-pointer">
-              <Image src={rightArrow} onClick={handleNext} />
-            </div>
-          </div>
+          )}
         </div>
       </div>
-      <div className=" flex items-center justify-center xl:pl-[108px] lg:pl-[64px] md:pl-[32px] pl-6">
+      <div className=" flex items-center justify-center xl:pl-[80px] lg:pl-[64px] md:pl-[32px] pl-6">
         <Swiper
           injectStyles={`{ height: "fit", backgroundColor: "black" }`}
           className="mySwiper"
@@ -130,7 +142,12 @@ const PortfolioSection = () => {
           freeMode={true}
           pagination={{
             el: ".swiper-pagination",
-            type: "fraction",
+            type: "custom",
+            renderCustom: function (swiper, current, total) {
+              return `<div className="mx-2 w-12 text-center">
+              ${current} / ${total}
+                </div>`;
+            },
           }}
           navigation={{ nextEl: ".nextPage", prevEl: ".prevPage" }}
           modules={[FreeMode, Navigation, Pagination, A11y]}
@@ -158,17 +175,20 @@ const PortfolioSection = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="max-md:flex hidden items-center justify-between w-full container pt-12">
-        <div className="prevPage cursor-pointer">
-          <Image src={leftArrow} onClick={handlePrev} />
+
+      {isMobile && (
+        <div className="max-md:flex hidden items-center justify-between w-full container pt-12">
+          <div className="prevPage cursor-pointer">
+            <Image src={leftArrow} onClick={handlePrev} />
+          </div>
+          <div className="mx-2 w-12 text-center swiper-pagination">
+            {/* {currentPage} / {maxPage} */}
+          </div>
+          <div className="nextPage cursor-pointer">
+            <Image src={rightArrow} onClick={handleNext} />
+          </div>
         </div>
-        <div className="mx-2 w-12 text-center swiper-pagination">
-          {currentPage} / {maxPage}
-        </div>
-        <div className="nextPage cursor-pointer">
-          <Image src={rightArrow} onClick={handleNext} />
-        </div>
-      </div>
+      )}
     </div>
   );
 };

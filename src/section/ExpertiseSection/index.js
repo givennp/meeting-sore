@@ -21,7 +21,7 @@ const ExpertiseSection = () => {
   return (
     <section ref={targetRef} className="relative md:h-[200vh] container mb-24">
       <div className="md:sticky md:top-[100px] overflow-hidden">
-        <div className="text-left w-full text-subheading-03 font-medium text-neutral-200 mb-6">
+        <div className="text-left w-full text-subheading-03 max-md:text-caption-01 font-medium text-neutral-200 mb-6">
           EXPERTISE
         </div>
         <div className="max-md:hidden">
