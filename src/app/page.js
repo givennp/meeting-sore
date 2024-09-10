@@ -20,7 +20,6 @@ import FormSection from "@/section/formSection";
 import Footer from "@/components/Footer";
 
 const Home = () => {
-const sectionRef = useRef(null);
   return (
     <>
       <div className="h-fit">
@@ -33,9 +32,9 @@ const sectionRef = useRef(null);
       {/* Portfolio Section */}
       <PortfolioSection />
       {/* FORM SECTION */}
-      <FormSection ref={sectionRef} />
+      <FormSection />
       {/* Footer */}
-      <Footer scrollToRef={sectionRef} />
+      <Footer />
     </>
   );
 };

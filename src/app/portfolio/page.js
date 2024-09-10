@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import portImage from "../../../public/portfolioImage.png";
 import portImage2 from "../../../public/portImage2.png";
@@ -8,10 +10,20 @@ import bullet from "../../../public/bullet.svg";
 import prevArrow from "../../../public/prevArrow.svg";
 import nextArrow from "../../../public/nextArrow.svg";
 import Footer from "@/components/Footer";
+import useIntersectionObserverPortfolio from "@/hooks/useIntersectionObserverPortfolio";
+import { useState } from "react";
 
 const Portfolio = () => {
+  const [activeSection, setActiveSection] = useState("");
+
+  useIntersectionObserverPortfolio("change-bg", setActiveSection);
+
   return (
-    <div>
+    <div
+      className={`${
+        activeSection === "change-bg" ? "bg-black" : "bg-transparent"
+      } duration-500`}
+    >
       <div className="h-[72px] mb-14" />
       <div className="container text-body-04 grid grid-cols-2 mb-14">
         <div className="">
@@ -76,14 +88,18 @@ const Portfolio = () => {
       </div>
 
       <div className="container ">
-        <div className="text-body-03 flex mb-44 gap-[136px]">
+        <div id="change-bg" className="text-body-03 flex mb-44 gap-[136px]">
           <div className="">
             <div className="text-subheading-05 font-medium text-neutral-200">
               RESULTS
             </div>
-            <div className="text-body-02 w-[310px] h-[84px]">
+            <div
+              className={`${
+                activeSection === "change-bg"? "text-white" :""
+              } text-body-02 w-[310px] h-[84px] `}
+            >
               In just 8 months of dedicated effort and exclusivity, these are
-              the results we've achieved:
+              the results we&apos;ve achieved:
             </div>
           </div>
 
@@ -123,9 +139,10 @@ const Portfolio = () => {
 
         {/* BULLET LIST */}
         <div className="flex flex-col gap-10 mb-[161px]">
-          <div className="flex text-heading-02 font-medium">
+          <div className="flex text-heading-02 font-medium ">
             <Image
               src={bullet}
+              className="animate-spin"
               style={{
                 width: "40px",
                 height: "40px",
@@ -142,6 +159,7 @@ const Portfolio = () => {
           <div className="flex text-heading-02 font-medium">
             <Image
               src={bullet}
+              className="animate-spin-counter"
               style={{
                 width: "40px",
                 height: "40px",
@@ -165,10 +183,7 @@ const Portfolio = () => {
         src={portImage3}
         style={{ width: "100%", height: "100%", marginBottom: "16px" }}
       />
-      <Image
-        src={portImage4}
-        style={{ width: "100%", height: "100%" }}
-      />
+      <Image src={portImage4} style={{ width: "100%", height: "100%" }} />
 
       {/* PAGE */}
       <div className="container flex justify-between h-32 items-center">
@@ -203,3 +218,5 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+

@@ -8,19 +8,31 @@ module.exports = {
   ],
   theme: {
     animation: {
-        marquee: 'marquee 25s linear infinite',
-        marquee2: 'marquee2 25s linear infinite',
-      },
+      marquee: "marquee 25s linear infinite",
+      marquee2: "marquee2 25s linear infinite",
+      spin: "spinClockwise 6s linear infinite", // Clockwise spin
+      "spin-counter": "spinCounterClockwise 6s linear infinite", // Counterclockwise spin
+    },
     keyframes: {
-        marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-        marquee2: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0%)' },
+      marquee: {
+        "0%": { transform: "translateX(0%)" },
+        "100%": { transform: "translateX(-100%)" },
+      },
+      marquee2: {
+        "0%": { transform: "translateX(100%)" },
+        "100%": { transform: "translateX(0%)" },
+      },
+      spinClockwise: {
+        "100%": {
+          transform: "rotate(360deg)", // Clockwise rotation
         },
       },
+      spinCounterClockwise: {
+        "100%": {
+          transform: "rotate(-360deg)", // Counterclockwise rotation
+        },
+      },
+    },
     screens: {
       sm: "600px",
       md: "960px",
