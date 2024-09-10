@@ -11,10 +11,24 @@ import prevArrow from "../../../public/prevArrow.svg";
 import nextArrow from "../../../public/nextArrow.svg";
 import Footer from "@/components/Footer";
 import useIntersectionObserverPortfolio from "@/hooks/useIntersectionObserverPortfolio";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState("");
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0.2 1", "1 1"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 300,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  const scale = useTransform(scaleY, [0, 1], ["90%", "100%"]);
 
   useIntersectionObserverPortfolio("change-bg", setActiveSection);
 
@@ -38,10 +52,28 @@ const Portfolio = () => {
           folowers within 3 months.
         </div>
       </div>
-      <Image
-        src={portImage}
-        style={{ width: "100%", height: "100%", marginBottom: "176px" }}
-      />
+      <motion.div
+        ref={ref}
+        style={{
+          scale, // Apply the scale transformation
+          width: "100%", // Set the image size
+          height: "100%",
+          margin: "0 auto", // Center the image
+          marginBottom: "176px",
+        }}
+        transition={{
+          // type: "spring",
+          stiffness: 300, // High stiffness to make the bounce more pronounced
+          damping: 10, // Lower damping to allow more bounce
+          duration: 0.8, // Duration of the scaling
+          // delay: 0.1, // Add a slight delay before starting the effect
+        }}
+      >
+        <Image
+          src={portImage}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </motion.div>
 
       {/* PROJECT DESCRIPTION */}
       <div className="container text-body-03 grid grid-cols-2 mb-44">
@@ -78,7 +110,6 @@ const Portfolio = () => {
         </div>
       </div>
       {/* END PROJECT DESCRIPTION */}
-
       {/* CANVAS 1 */}
       <div className="container">
         <Image
@@ -86,7 +117,6 @@ const Portfolio = () => {
           style={{ width: "100%", height: "100%", marginBottom: "176px" }}
         />
       </div>
-
       <div className="container ">
         <div id="change-bg" className="text-body-03 flex mb-44 gap-[136px]">
           <div className="">
@@ -95,7 +125,7 @@ const Portfolio = () => {
             </div>
             <div
               className={`${
-                activeSection === "change-bg"? "text-white" :""
+                activeSection === "change-bg" ? "text-white" : ""
               } text-body-02 w-[310px] h-[84px] `}
             >
               In just 8 months of dedicated effort and exclusivity, these are
@@ -174,7 +204,6 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-
       <Image
         src={portImage5}
         style={{ width: "100%", height: "100%", marginBottom: "16px" }}
@@ -184,7 +213,6 @@ const Portfolio = () => {
         style={{ width: "100%", height: "100%", marginBottom: "16px" }}
       />
       <Image src={portImage4} style={{ width: "100%", height: "100%" }} />
-
       {/* PAGE */}
       <div className="container flex justify-between h-32 items-center">
         {/* PREV */}
@@ -211,12 +239,9 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );
 };
 
 export default Portfolio;
-
-
