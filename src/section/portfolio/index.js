@@ -112,7 +112,7 @@ const PortfolioSection = () => {
           )}
         </div>
       </div>
-      <div className=" flex items-center justify-center xl:pl-[80px] lg:pl-[64px] md:pl-[32px] pl-6">
+      <div className=" flex items-center justify-center container">
         <Swiper
           injectStyles={`{ height: "fit", backgroundColor: "black" }`}
           className="mySwiper"
@@ -127,6 +127,15 @@ const PortfolioSection = () => {
               slidesPerView: 3,
               spaceBetween: 300,
               slidesOffsetAfter: 300,
+              pagination: {
+                el: "swiper-pagination-mobile",
+                type: "custom",
+                renderCustom: function (swiper, current, total) {
+                  return `<div className="mx-2 w-12 text-center">
+              ${current} / ${total}
+                </div>`;
+                },
+              },
             },
             960: {
               slidesPerView: 3,
@@ -137,18 +146,27 @@ const PortfolioSection = () => {
               slidesPerView: 4,
               spaceBetween: 400,
               slidesOffsetAfter: 450,
+              pagination: {
+                el: ".swiper-pagination",
+                type: "custom",
+                renderCustom: function (swiper, current, total) {
+                  return `<div className="mx-2 w-12 text-center">
+              ${current} / ${total}
+                </div>`;
+                },
+              },
             },
           }}
           freeMode={true}
-          pagination={{
-            el: ".swiper-pagination",
-            type: "custom",
-            renderCustom: function (swiper, current, total) {
-              return `<div className="mx-2 w-12 text-center">
-              ${current} / ${total}
-                </div>`;
-            },
-          }}
+          // pagination={{
+          //   el: ".swiper-pagination",
+          //   type: "custom",
+          //   renderCustom: function (swiper, current, total) {
+          //     return `<div className="mx-2 w-12 text-center">
+          //     ${current} / ${total}
+          //       </div>`;
+          //   },
+          // }}
           navigation={{ nextEl: ".nextPage", prevEl: ".prevPage" }}
           modules={[FreeMode, Navigation, Pagination, A11y]}
         >
@@ -181,7 +199,7 @@ const PortfolioSection = () => {
           <div className="prevPage cursor-pointer">
             <Image src={leftArrow} onClick={handlePrev} />
           </div>
-          <div className="mx-2 w-12 text-center swiper-pagination">
+          <div className="mx-2 w-12 text-center swiper-pagination-mobile">
             {/* {currentPage} / {maxPage} */}
           </div>
           <div className="nextPage cursor-pointer">
