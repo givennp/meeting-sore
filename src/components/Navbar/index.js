@@ -65,8 +65,9 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex gap-x-6 max-md:hidden text-white">
-            <Button link="/portfolio">PORTFOLIO</Button>
-            <Button link="/about">ABOUT</Button>
+            <Button link="#about-us">ABOUT</Button>
+            <Button link="#expertise">EXEPERTISE</Button>
+            <Button link="#portfolio">PORTFOLIO</Button>
             <Button link="/contact">CONTACT US</Button>
           </div>
 

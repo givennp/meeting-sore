@@ -18,10 +18,16 @@ const Footer = () => {
             >
               ABOUT US
             </Button>
-            <Button className="text-body-01 max-md:text-body-04">
+            <Button
+              link="#expertise"
+              className="text-body-01 max-md:text-body-04"
+            >
               EXPERTISE
             </Button>
-            <Button className="text-body-01 max-md:text-body-04">
+            <Button
+              link="#portfolio"
+              className="text-body-01 max-md:text-body-04"
+            >
               PREVIOUS WORKS
             </Button>
             <Button

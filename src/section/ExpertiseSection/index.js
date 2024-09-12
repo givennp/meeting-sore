@@ -19,7 +19,11 @@ const ExpertiseSection = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["1%", offset]);
 
   return (
-    <section ref={targetRef} className="relative md:h-[200vh] container mb-24">
+    <section
+      ref={targetRef}
+      id="expertise"
+      className="relative md:h-[200vh] container mb-24"
+    >
       <div className="md:sticky md:top-[100px] overflow-hidden">
         <div className="text-left w-full text-subheading-03 max-md:text-caption-01 font-medium text-neutral-200 mb-6">
           EXPERTISE

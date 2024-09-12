@@ -27,7 +27,7 @@ const PortfolioSection = () => {
   const [active, setActive] = useState("1");
   const [isMobile, setIsMobile] = useState(false);
 
-  useIntersectionObserver("section1", setActiveSection);
+  useIntersectionObserver("portfolio", setActiveSection);
 
   const handlePrev = () => {
     if (currentPage == 1) return;
@@ -55,15 +55,15 @@ const PortfolioSection = () => {
 
   return (
     <div
-      id="section1"
+      id="portfolio"
       className={`section py-[88px]
-           ${activeSection === "section1" ? "bg-primary-brand" : "none"} 
+           ${activeSection === "portfolio" ? "bg-primary-brand" : "none"} 
         duration-300`}
     >
       <div className="container">
         <div
           className={`mb-8 font-medium text-subheading-03 ${
-            activeSection === "section1" ? "text-white" : "text-neutral-200"
+            activeSection === "portfolio" ? "text-white" : "text-neutral-200"
           } max-md:text-caption-01`}
         >
           PREVIOUS WORKS

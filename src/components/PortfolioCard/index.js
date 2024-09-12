@@ -48,7 +48,7 @@ const PortfolioCard = () => {
             </svg>
           </div>
           <div>
-            <p className="text-body-05 text-neutral-100 max-md:text-caption-01">Social Media</p>
+            <p className="text-body-05 text-neutral-100 max-md:text-caption-01">{"Social Media".toUpperCase()}</p>
             <p className="text-subheading-01 max-md:text-subheading-04 group-hover:text-neutral-100 duration-[400ms]">
               Betterfly Travel
             </p>

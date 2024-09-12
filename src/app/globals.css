@@ -73,10 +73,3 @@ html {
     text-wrap: balance;
   }
 }
-
- @media (hover: none) {
-  /* Disable hover styles on mobile */
-  *:hover {
-    all: unset;
-  }
-}
