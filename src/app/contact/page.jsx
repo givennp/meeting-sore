@@ -100,12 +100,7 @@ const Contact = () => {
           </div>
           <div className="max-md:hidden w-[422px] h-[498px]">
             <Image
-              style={{
-                objectFit: "cover",
-                // maxWidth: "422px",
-                width: "100%",
-                height: "100%",
-              }}
+            className="object-cover w-full h-full"
               src={image1}
             />
           </div>

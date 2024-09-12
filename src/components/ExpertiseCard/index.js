@@ -3,7 +3,7 @@ import expertiseImage from "../../../public/expertise.png";
 
 const ExpertiseCard = ({number, title, image}) => {
   return (
-    <div className="relative h-[523px] w-[643px] max-md:h-[293px] max-md:w-[312px] overflow-hidden ">
+    <div className="relative h-[523px] w-[643px] max-md:h-[293px] max-md:w-full overflow-hidden ">
       {/* Text content */}
       <div className="relative z-10 flex gap-3 items-start">
         <div className="border rounded-full p-3 md:mt-8 mt-2 border-primary-brand text-primary-brand w-6 h-6 flex items-center justify-center">

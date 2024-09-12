@@ -1,11 +1,16 @@
 import Button from "../Buttons/Button";
 import logo from "../../../public/Logo_Complete.svg";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
   const handleClick = () => {
     scrollToRef.current.scrollIntoView({ behavior: "smooth" });
   }; 
+  const router = useRouter();
+
+  // Check if the current page is not the home page
+  const homePagePath = router.pathname == "/" ? "" : "/" ;
 
   return (
     <div className="h-[466px] max-md:h-[270px] max-md:pt-[32px] pt-[56px] border-t border-neutral-200">
@@ -13,7 +18,7 @@ const Footer = () => {
         <div className=" flex justify-between md:h-[314px] max-md:mb-10 max-md:h-[144px]">
           <div className="flex flex-col gap-4">
             <Button
-              link="#about-us"
+              link={`${homePagePath}#about-us`}
               className="text-body-01 max-md:text-body-04"
             >
               ABOUT US
@@ -25,7 +30,7 @@ const Footer = () => {
               EXPERTISE
             </Button>
             <Button
-              link="#portfolio"
+              link={`${homePagePath}#portfolio`}
               className="text-body-01 max-md:text-body-04"
             >
               PREVIOUS WORKS
@@ -61,7 +66,7 @@ const Footer = () => {
             width={92}
             height={24}
             src={logo}
-            layout="fixed"
+            // layout="fixed"
             className="mix-blend-difference"
             alt="Logo"
           />

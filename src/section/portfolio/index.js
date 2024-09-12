@@ -23,9 +23,9 @@ const PortfolioSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPage, setMaxPage] = useState(5);
   const swiperRef = useRef();
-  const swiper = useSwiper();
   const [active, setActive] = useState("1");
   const [isMobile, setIsMobile] = useState(false);
+  const [mobilePagination, setMobilePagination] = useState("");
 
   useIntersectionObserver("portfolio", setActiveSection);
 
@@ -46,12 +46,14 @@ const PortfolioSection = () => {
   };
 
   useEffect(() => {
-    console.log(window.innerWidth);
-
     if (typeof window !== "undefined") {
       setIsMobile(window.innerWidth < 960);
+
+      setMobilePagination(
+        isMobile ? ".swiper-pagination-mobile" : ".swiper-pagination"
+      );
     }
-  }, [isMobile]);
+  }, []);
 
   return (
     <div
@@ -62,7 +64,7 @@ const PortfolioSection = () => {
     >
       <div className="container">
         <div
-          className={`mb-8 font-medium text-subheading-03 ${
+          className={`mb-8 max-md:mb-6 font-medium text-subheading-03 ${
             activeSection === "portfolio" ? "text-white" : "text-neutral-200"
           } max-md:text-caption-01`}
         >
@@ -70,7 +72,7 @@ const PortfolioSection = () => {
         </div>
 
         <div className="flex justify-between h-8 w-full mb-[40px]">
-          <div className="flex flex-wrap flex-col gap-4 items-center justify-center md:w-max overflow-auto scrolling-wrapper-flexbox">
+          <div className="flex flex-wrap flex-col gap-4  justify-between md:w-max overflow-auto scrolling-wrapper-flexbox">
             <RoundedButton
               onClick={() => filterHandler("1")}
               isActive={active == "1"}
@@ -111,62 +113,38 @@ const PortfolioSection = () => {
             </div>
           )}
         </div>
-      </div>
-      <div className=" flex items-center justify-center container">
         <Swiper
-          injectStyles={`{ height: "fit", backgroundColor: "black" }`}
           className="mySwiper"
           autoHeight={true}
           breakpoints={{
             300: {
               slidesPerView: 2,
-              spaceBetween: 250,
-              slidesOffsetAfter: 250,
+              // spaceBetween: "2%",
+              spaceBetween: 216,
+              slidesOffsetAfter: 210,
             },
             600: {
-              slidesPerView: 3,
-              spaceBetween: 300,
-              slidesOffsetAfter: 300,
-              pagination: {
-                el: "swiper-pagination-mobile",
-                type: "custom",
-                renderCustom: function (swiper, current, total) {
-                  return `<div className="mx-2 w-12 text-center">
-              ${current} / ${total}
-                </div>`;
-                },
-              },
+              slidesPerView: 2,
+              // spaceBetween: 300,
             },
             960: {
               slidesPerView: 3,
-              spaceBetween: 200,
-              slidesOffsetAfter: 350,
+              spaceBetween: 100,
             },
             1024: {
-              slidesPerView: 4,
-              spaceBetween: 400,
-              slidesOffsetAfter: 450,
-              pagination: {
-                el: ".swiper-pagination",
-                type: "custom",
-                renderCustom: function (swiper, current, total) {
-                  return `<div className="mx-2 w-12 text-center">
+              slidesPerView: 3,
+            },
+          }}
+          pagination={{
+            el: mobilePagination,
+            type: "custom",
+            renderCustom: function (swiper, current, total) {
+              return `<div className="mx-2 w-12 text-center">
               ${current} / ${total}
                 </div>`;
-                },
-              },
             },
           }}
           freeMode={true}
-          // pagination={{
-          //   el: ".swiper-pagination",
-          //   type: "custom",
-          //   renderCustom: function (swiper, current, total) {
-          //     return `<div className="mx-2 w-12 text-center">
-          //     ${current} / ${total}
-          //       </div>`;
-          //   },
-          // }}
           navigation={{ nextEl: ".nextPage", prevEl: ".prevPage" }}
           modules={[FreeMode, Navigation, Pagination, A11y]}
         >
@@ -199,7 +177,7 @@ const PortfolioSection = () => {
           <div className="prevPage cursor-pointer">
             <Image src={leftArrow} onClick={handlePrev} />
           </div>
-          <div className="mx-2 w-12 text-center swiper-pagination-mobile">
+          <div className="mx-2 w-12 text-center swiper-pagination">
             {/* {currentPage} / {maxPage} */}
           </div>
           <div className="nextPage cursor-pointer">

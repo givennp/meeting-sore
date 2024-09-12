@@ -12,9 +12,9 @@ const PortfolioCard = () => {
           <div className="absolute inset-0 transition-transform duration-[400ms] group-hover:scale-125">
             <Image
               src={portfolio}
-              layout="fill"
-              objectFit="cover"
-              className="w-full h-full"
+              // layout="fill"
+              // objectFit="cover"
+              className="w-full h-full object-cover"
             />
           </div>
           <div className="absolute inset-0 flex opacity-0 justify-center items-center duration-[200ms] group-hover:opacity-100">

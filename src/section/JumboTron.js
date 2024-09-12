@@ -9,15 +9,16 @@ const JumboTron = () => {
       <div className=" h-[72px] bg-black sticky top-0" />
       <Image
         src={parallaxImage}
-        style={{
-          width: "100%",
-          height: "100vh",
-          objectFit: "cover",
-          position: "sticky",
-          top: "0",
-          zIndex: "-10",
-          background: "#000",
-        }}
+        className="w-full h-screen object-cover sticky top-0 -z-10 bg-black"
+        // style={{
+        //   width: "100%",
+        //   height: "100vh",
+        //   objectFit: "cover",
+        //   position: "sticky",
+        //   top: "0",
+        //   zIndex: "-10",
+        //   background: "#000",
+        // }}
       />
       <section id="about-us" className="bg-black h-[100vh] max-md:min-h-[592px] sm:max-md:h-[700px] max-sm:h-[304px] md:pl-16 flex max-md:flex-col max-md:w-full ">
         <div className="h-full w-full flex items-center">
