@@ -42,7 +42,7 @@ body::before {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px); /* Safari-specific support */
   /* mix-blend-mode: difference; Apply mix-blend-mode */
-  background-color: transparent;
+  /* background-color: transparent; */
   z-index: 50;
 }
 
