@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import image1 from "../../public/jalanan.jpeg";
 import logo from "../../public/logo.svg";
@@ -9,6 +10,7 @@ const JumboTron = () => {
       <div className=" h-[72px] bg-black sticky top-0" />
       <Image
         src={parallaxImage}
+        alt=""
         className="w-full h-screen object-cover sticky top-0 -z-10 bg-black"
         // style={{
         //   width: "100%",

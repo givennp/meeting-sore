@@ -1,3 +1,4 @@
+"use client"
 import ExpertiseCard from "@/components/ExpertiseCard";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";

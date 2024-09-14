@@ -1,6 +1,7 @@
+"use client"
 import Input from "@/components/Input";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const FormSection = ({ ref }) => {
   const [activeSection, setActiveSection] = useState("");

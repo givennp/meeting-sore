@@ -1,17 +1,61 @@
 "use client";
 
 import Image from "next/image";
-import logo from "../../../public/Logo_Complete.svg";
+import Logo from "../../../public/Logo_Complete.svg";
+import blackLogo from "../../../public/Logo_Complete_black.svg";
 import Link from "next/link";
 import icon from "../../../public/menu-icon.svg";
 import close from "../../../public/close.svg";
 import Button from "../Buttons/Button";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            // Motion properties for fade in/out
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }} // Fade duration
+            className="text-center w-full h-full justify-center font-medium  text-heading-01 fixed top-0 backdrop-blur-lg z-50"
+          >
+            <div className=" container h-[64px] fixed flex justify-between items-center">
+              <Link href="/">
+                <Image
+                  width={76}
+                  height={20}
+                  src={blackLogo}
+                  // layout="fixed"
+                  className="fill-black"
+                  alt="Logo"
+                />
+                {/* <Logo /> */}
+              </Link>
+
+              <Image
+                className="md:hidden w-6 h-6"
+                onClick={() => setIsOpen(!isOpen)}
+                src={close}
+              />
+            </div>
+            <div
+              className={`duration-200 bg-white opacity-50 -z-10 fixed h-full w-full`}
+            />
+
+            <div className="gap-6 flex flex-col w-full h-full text-center justify-center">
+              <Link href="#about-us">ABOUT</Link>
+              <Link href="#expertise">EXPERTISE</Link>
+              <Link href="#portfolio">PORTFOLIO</Link>
+              <Link href="/contact">CONTACT US</Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* <div
         className={`${
           isOpen ? "opacity-100" : "opacity-0"
@@ -58,7 +102,7 @@ const Navbar = () => {
         <div className="container h-full  flex justify-between items-center">
           <Link href="/">
             <Image
-              src={logo}
+              src={Logo}
               // layout="fixed"
               className="mix-blend-difference w-[92px] h-[24px] max-md:w-[76px] max-md:h-[20px]"
               alt="Logo"

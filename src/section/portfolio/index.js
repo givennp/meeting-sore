@@ -1,3 +1,4 @@
+"use client";
 import RoundedButton from "@/components/RoundedButtons";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import { useEffect, useRef, useState } from "react";
@@ -15,6 +16,7 @@ import "./portfolio.css";
 // import required modules
 import { FreeMode, Pagination, A11y, Navigation } from "swiper/modules";
 import Image from "next/image";
+import axiosInstance from "@/lib/axiosInstance";
 
 const { default: PortfolioCard } = require("@/components/PortfolioCard");
 
@@ -22,6 +24,7 @@ const PortfolioSection = () => {
   const [activeSection, setActiveSection] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPage, setMaxPage] = useState(5);
+
   const swiperRef = useRef();
   const [active, setActive] = useState("1");
   const [isMobile, setIsMobile] = useState(false);
@@ -102,13 +105,17 @@ const PortfolioSection = () => {
           {!isMobile && (
             <div className="flex items-center justify-center max-md:hidden">
               <div className="prevPage cursor-pointer">
-                <Image src={leftArrow} onClick={handlePrev} />
+                <Image src={leftArrow} 
+                // onClick={handlePrev}
+                 />
               </div>
               <div className="mx-2 w-12 text-center swiper-pagination">
                 {/* {currentPage} / {maxPage} */}
               </div>
               <div className="nextPage cursor-pointer">
-                <Image src={rightArrow} onClick={handleNext} />
+                <Image src={rightArrow}
+                //  onClick={handleNext} 
+                 />
               </div>
             </div>
           )}

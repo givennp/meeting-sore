@@ -102,6 +102,7 @@ const Contact = () => {
             <Image
             className="object-cover w-full h-full"
               src={image1}
+              alt=""
             />
           </div>
         </div>

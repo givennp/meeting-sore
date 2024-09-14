@@ -1,6 +1,6 @@
+"use client"
 import Image from "next/image";
 import client from "../../../public/marqueeContent.jpg";
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 const Marquee = () => {
   //  const marqueeRef = useRef(null);
@@ -31,13 +31,13 @@ const Marquee = () => {
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
           className="flex flex-shrink-0"
         >
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
         </motion.div>
 
         <motion.div
@@ -46,13 +46,13 @@ const Marquee = () => {
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
           className="flex flex-shrink-0"
         >
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
-          <Image src={client} />
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
+          <Image src={client} alt=""/>
         </motion.div>
       </div>
     </div>
