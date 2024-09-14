@@ -16,7 +16,6 @@ import "./portfolio.css";
 // import required modules
 import { FreeMode, Pagination, A11y, Navigation } from "swiper/modules";
 import Image from "next/image";
-import axiosInstance from "@/lib/axiosInstance";
 
 const { default: PortfolioCard } = require("@/components/PortfolioCard");
 
