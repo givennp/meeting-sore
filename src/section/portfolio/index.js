@@ -29,6 +29,8 @@ const PortfolioSection = () => {
   const [active, setActive] = useState("1");
   const [isMobile, setIsMobile] = useState(false);
   const [mobilePagination, setMobilePagination] = useState("");
+  const [nextPageButton, setNextPageButton] = useState("");
+  const [prevPageButton, setPrevPageButton] = useState("");
 
   useIntersectionObserver("portfolio", setActiveSection);
 
@@ -55,6 +57,8 @@ const PortfolioSection = () => {
       setMobilePagination(
         isMobile ? ".swiper-pagination-mobile" : ".swiper-pagination"
       );
+      setNextPageButton( ".nextPage");
+      setPrevPageButton( ".prevPage");
     }
   }, []);
 
@@ -106,16 +110,16 @@ const PortfolioSection = () => {
             <div className="flex items-center justify-center max-md:hidden">
               <div className="prevPage cursor-pointer">
                 <Image src={leftArrow} 
-                // onClick={handlePrev}
-                 />
+                  // onClick={handlePrev}
+                />
               </div>
               <div className="mx-2 w-12 text-center swiper-pagination">
                 {/* {currentPage} / {maxPage} */}
               </div>
               <div className="nextPage cursor-pointer">
                 <Image src={rightArrow}
-                //  onClick={handleNext} 
-                 />
+                  //  onClick={handleNext}
+                />
               </div>
             </div>
           )}
@@ -152,7 +156,7 @@ const PortfolioSection = () => {
             },
           }}
           freeMode={true}
-          navigation={{ nextEl: ".nextPage", prevEl: ".prevPage" }}
+          navigation={{ nextEl: nextPageButton, prevEl: prevPageButton }}
           modules={[FreeMode, Navigation, Pagination, A11y]}
         >
           <SwiperSlide>
