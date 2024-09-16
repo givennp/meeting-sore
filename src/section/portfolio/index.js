@@ -93,12 +93,12 @@ const PortfolioSection = () => {
     }
     return filteredData.map((portfolio, i) => {
       return (
-        <SwiperSlide>
+        <SwiperSlide key={i}>
           <PortfolioCard
             image={portfolio.image}
             name={portfolio.name}
             type={portfolio.type}
-            key={i}
+            key={i + 10}
           />
         </SwiperSlide>
       );
