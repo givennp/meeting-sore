@@ -2,6 +2,8 @@
 import ExpertiseCard from "@/components/ExpertiseCard";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import expertise1 from "../../../public/expertise.png"
+import expertise2 from "../../../public/expertisePhoto.png"
 
 const ExpertiseSection = () => {
   const [offset, setOffset] = useState("-60%");
@@ -35,10 +37,10 @@ const ExpertiseSection = () => {
               <ExpertiseCard
                 number="1"
                 title="Social Media Marketing"
-                image=""
+                image={expertise1}
               />
-              <ExpertiseCard number="2" title="Branding" />
-              <ExpertiseCard number="3" title="Product" />
+              <ExpertiseCard number="2" title="Branding" image={expertise2} />
+              <ExpertiseCard number="3" title="Product" image={expertise1} />
             </div>
           </motion.div>
         </div>
@@ -46,9 +48,13 @@ const ExpertiseSection = () => {
         {/* mobile */}
         <div className="max-md:block md:hidden ">
           <div className="items-center flex flex-col w-full justify-center gap-12 overflow-hidden">
-            <ExpertiseCard number="1" title="Social Media Marketing" image="" />
-            <ExpertiseCard number="2" title="Branding" />
-            <ExpertiseCard number="3" title="Product" />
+            <ExpertiseCard
+              number="1"
+              title="Social Media Marketing"
+              image={expertise1}
+            />
+            <ExpertiseCard number="2" title="Branding" image={expertise2} />
+            <ExpertiseCard number="3" title="Product" image={expertise1} />
           </div>
         </div>
       </div>
