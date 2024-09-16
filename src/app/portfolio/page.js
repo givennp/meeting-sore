@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import portImage from "../../../public/portfolioImage.png";
 import portImage2 from "../../../public/portImage2.png";
@@ -222,9 +221,9 @@ const Portfolio = () => {
       <div className="container flex justify-between h-32 max-md:h-20 items-center">
         {/* PREV */}
         <div className="flex flex-col items-start">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-2">
             <Image src={prevArrow} style={{ width: "12px", height: "9px" }} />
-            <div className="text-subheading-05 max-md:text-caption-01 font-medium text-neutral-200 mb-2">
+            <div className="text-subheading-05 max-md:text-caption-01 font-medium text-neutral-200 ">
               PREVIOUS
             </div>
           </div>
@@ -235,9 +234,9 @@ const Portfolio = () => {
 
         {/* NEXT */}
         <div className="flex flex-col items-end">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mb-2">
             <Image src={nextArrow} style={{ width: "12px", height: "9px" }} />
-            <div className="text-subheading-05 font-medium max-md:text-caption-01 text-neutral-200 mb-2">
+            <div className="text-subheading-05 font-medium max-md:text-caption-01 text-neutral-200 ">
               NEXT
             </div>
           </div>

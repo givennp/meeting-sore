@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import leftArrow from "../../../public/leftArrow.png";
 import rightArrow from "../../../public/rightArrow.png";
+import betterfly from "../../../public/betterfly-travel.png";
+import mogano from "../../../public/mogano.png";
+import pwdk from "../../../public/pwdk.png";
 
 // Import Swiper styles
 import "swiper/css";
@@ -25,11 +28,44 @@ const PortfolioSection = () => {
   const [maxPage, setMaxPage] = useState(5);
 
   const swiperRef = useRef();
-  const [active, setActive] = useState("1");
+  const [active, setActive] = useState("All");
   const [isMobile, setIsMobile] = useState(false);
   const [mobilePagination, setMobilePagination] = useState("");
   const [nextPageButton, setNextPageButton] = useState("");
   const [prevPageButton, setPrevPageButton] = useState("");
+
+  const data = [
+    {
+      image: betterfly,
+      name: "Betterfly Travel",
+      type: "Social Media",
+    },
+    {
+      image: mogano,
+      name: "Mogano",
+      type: "Branding",
+    },
+    {
+      image: pwdk,
+      name: "Thrive with Purwadhika",
+      type: "Production",
+    },
+    {
+      image: betterfly,
+      name: "Betterfly Travel",
+      type: "Social Media",
+    },
+    {
+      image: mogano,
+      name: "Mogano",
+      type: "Branding",
+    },
+    {
+      image: pwdk,
+      name: "Thrive with Purwadhika",
+      type: "Production",
+    },
+  ];
 
   useIntersectionObserver("portfolio", setActiveSection);
 
@@ -49,6 +85,26 @@ const PortfolioSection = () => {
     setActive(btn);
   };
 
+  const renderData = () => {
+    // data.filter((val.type) => {})
+    let filteredData = data
+    if (active != "All") {
+      filteredData = data.filter((val) => val.type === active);
+    }
+    return filteredData.map((portfolio, i) => {
+      return (
+        <SwiperSlide>
+          <PortfolioCard
+            image={portfolio.image}
+            name={portfolio.name}
+            type={portfolio.type}
+            key={i}
+          />
+        </SwiperSlide>
+      );
+    });
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsMobile(window.innerWidth < 960);
@@ -56,10 +112,10 @@ const PortfolioSection = () => {
       setMobilePagination(
         isMobile ? ".swiper-pagination-mobile" : ".swiper-pagination"
       );
-      setNextPageButton( ".nextPage");
-      setPrevPageButton( ".prevPage");
+      setNextPageButton(".nextPage");
+      setPrevPageButton(".prevPage");
     }
-  }, []);
+  }, [isMobile]);
 
   return (
     <div
@@ -80,26 +136,26 @@ const PortfolioSection = () => {
         <div className="flex justify-between h-8 w-full mb-[40px]">
           <div className="flex flex-wrap flex-col gap-4  justify-between md:w-max overflow-auto scrolling-wrapper-flexbox">
             <RoundedButton
-              onClick={() => filterHandler("1")}
-              isActive={active == "1"}
+              onClick={() => filterHandler("All")}
+              isActive={active == "All"}
             >
               ALL
             </RoundedButton>{" "}
             <RoundedButton
-              onClick={() => filterHandler("2")}
-              isActive={active == "2"}
+              onClick={() => filterHandler("Social Media")}
+              isActive={active == "Social Media"}
             >
               SOCIAL MEDIA
             </RoundedButton>{" "}
             <RoundedButton
-              onClick={() => filterHandler("3")}
-              isActive={active == "3"}
+              onClick={() => filterHandler("Branding")}
+              isActive={active == "Branding"}
             >
               BRANDING
             </RoundedButton>
             <RoundedButton
-              onClick={() => filterHandler("4")}
-              isActive={active == "4"}
+              onClick={() => filterHandler("Production")}
+              isActive={active == "Production"}
             >
               PRODUCTION
             </RoundedButton>
@@ -108,7 +164,8 @@ const PortfolioSection = () => {
           {!isMobile && (
             <div className="flex items-center justify-center max-md:hidden">
               <div className="prevPage cursor-pointer">
-                <Image src={leftArrow} 
+                <Image
+                  src={leftArrow}
                   // onClick={handlePrev}
                 />
               </div>
@@ -116,7 +173,8 @@ const PortfolioSection = () => {
                 {/* {currentPage} / {maxPage} */}
               </div>
               <div className="nextPage cursor-pointer">
-                <Image src={rightArrow}
+                <Image
+                  src={rightArrow}
                   //  onClick={handleNext}
                 />
               </div>
@@ -158,27 +216,7 @@ const PortfolioSection = () => {
           navigation={{ nextEl: nextPageButton, prevEl: prevPageButton }}
           modules={[FreeMode, Navigation, Pagination, A11y]}
         >
-          <SwiperSlide>
-            <PortfolioCard key={1} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PortfolioCard key={2} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PortfolioCard key={3} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PortfolioCard key={4} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PortfolioCard key={5} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PortfolioCard key={6} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <PortfolioCard key={7} />
-          </SwiperSlide>
+          {renderData()}
         </Swiper>
       </div>
 

@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const PortfolioCard = () => {
+const PortfolioCard = ({image, name, type}) => {
   // const router = useRouter();
 
   // const handleClick = () => {
@@ -24,7 +24,7 @@ const PortfolioCard = () => {
           <div className="w-full h-[276px] md:h-[340px] sm:h-[276px] lg:h-[448px] lg:group-hover:h-[376px] md:group-hover:h-[268px] max-md:group-hover:h-[224px] duration-[400ms] group-hover:h-[376px] relative overflow-hidden mb-4">
             <div className="absolute inset-0 transition-transform duration-[400ms] group-hover:scale-125">
               <Image
-                src={portfolio}
+                src={image}
                 // layout="fill"
                 // objectFit="cover"
                 className="w-full h-full object-cover"
@@ -62,10 +62,10 @@ const PortfolioCard = () => {
             </div>
             <div>
               <p className="text-body-05 text-neutral-100 max-md:text-caption-01">
-                {"Social Media".toUpperCase()}
+                {type.toUpperCase()}
               </p>
               <p className="text-subheading-01 max-md:text-subheading-04 group-hover:text-neutral-100 duration-[400ms]">
-                Betterfly Travel
+                {name}
               </p>
             </div>
           </div>
