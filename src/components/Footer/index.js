@@ -46,14 +46,14 @@ const Footer = () => {
 
           <div className="flex flex-col gap-4">
             <Button
-              className="text-body-04 max-md:text-caption-01 min-w-[150px] text-right"
+              className="text-body-03 max-md:text-caption-01 min-w-[150px] text-right"
               className2="text-left"
               onHoverText="@meetingsore"
             >
               INSTAGRAM
             </Button>
             <Button
-              className="text-body-04 max-md:text-caption-01 md:min-w-[250px] text-right"
+              className="text-body-03 max-md:text-caption-01 md:min-w-[250px] text-right"
               className2="text-left"
               onHoverText="linkedin/in/meetingsore"
             >
