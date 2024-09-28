@@ -44,6 +44,8 @@ body::before {
   /* mix-blend-mode: difference; Apply mix-blend-mode */
   /* background-color: transparent; */
   z-index: 50;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible
 }
 
 .menu {
