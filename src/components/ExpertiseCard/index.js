@@ -18,6 +18,8 @@ const ExpertiseCard = ({number, title, image}) => {
       <Image
         src={image}
         alt="Expertise Image"
+        width={420}
+        height={420}
         className="absolute w-[420px] h-[420px] max-md:w-[236px] max-md:h-[236px] right-0 bottom-0 object-cover"
       />
     </div>

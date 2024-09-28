@@ -19,7 +19,6 @@ import "./portfolio.css";
 // import required modules
 import { FreeMode, Pagination, A11y, Navigation } from "swiper/modules";
 import Image from "next/image";
-import  BASE_URL  from "@/config";
 
 const { default: PortfolioCard } = require("@/components/PortfolioCard");
 

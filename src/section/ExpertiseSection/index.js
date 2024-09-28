@@ -1,23 +1,21 @@
-"use client"
+"use client";
 import ExpertiseCard from "@/components/ExpertiseCard";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import expertise1 from "../../../public/expertise.png"
-import expertise2 from "../../../public/expertisePhoto.png"
 
-const ExpertiseSection = () => {
+const ExpertiseSection = ({ socialMedia, branding, product }) => {
   const [offset, setOffset] = useState("-60%");
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
 
-   useEffect(() => {
-     if (typeof window !== "undefined") {
-       const newOffset = window.innerWidth < 1280 ? "-130%" : "-60%";
-       setOffset(newOffset);
-     }
-   }, []);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const newOffset = window.innerWidth < 1280 ? "-130%" : "-60%";
+      setOffset(newOffset);
+    }
+  }, []);
 
   const x = useTransform(scrollYProgress, [0, 1], ["1%", offset]);
 
@@ -37,10 +35,10 @@ const ExpertiseSection = () => {
               <ExpertiseCard
                 number="1"
                 title="Social Media Marketing"
-                image={expertise1}
+                image={socialMedia}
               />
-              <ExpertiseCard number="2" title="Branding" image={expertise2} />
-              <ExpertiseCard number="3" title="Product" image={expertise1} />
+              <ExpertiseCard number="2" title="Branding" image={branding} />
+              <ExpertiseCard number="3" title="Product" image={product} />
             </div>
           </motion.div>
         </div>
@@ -51,10 +49,10 @@ const ExpertiseSection = () => {
             <ExpertiseCard
               number="1"
               title="Social Media Marketing"
-              image={expertise1}
+              image={socialMedia}
             />
-            <ExpertiseCard number="2" title="Branding" image={expertise2} />
-            <ExpertiseCard number="3" title="Product" image={expertise1} />
+            <ExpertiseCard number="2" title="Branding" image={branding} />
+            <ExpertiseCard number="3" title="Product" image={product} />
           </div>
         </div>
       </div>

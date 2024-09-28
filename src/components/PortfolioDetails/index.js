@@ -1,18 +1,10 @@
 "use client";
 import Image from "next/image";
-import portImage from "../../../public/portfolioImage.png";
-import portImage2 from "../../../public/portImage2.png";
-import portImage3 from "../../../public/portImage3.png";
-import portImage4 from "../../../public/portImage4.png";
-import portImage5 from "../../../public/portImage5.png";
 import bullet from "../../../public/bullet.svg";
-import prevArrow from "../../../public/prevArrow.svg";
-import nextArrow from "../../../public/nextArrow.svg";
 import Footer from "@/components/Footer";
 import useIntersectionObserverPortfolio from "@/hooks/useIntersectionObserverPortfolio";
 import { useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import BASE_URL from "@/config";
 import Button from "../Buttons/Button";
 
 const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {

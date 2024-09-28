@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import axiosInstance from "@/lib/axiosInstance";
 import getPortfolios from "@/lib/getPortfolios";
 import getClients from "@/lib/getClients";
+import getLandingPageAssets from "@/lib/getHomePageAssets";
 
 const Home = async () => {
   // let portfolios, clients;
@@ -18,16 +19,24 @@ const Home = async () => {
 
   const clients = await getClients()
 
-
+  const landingPageAssets = await getLandingPageAssets()
+  
   return (
     <>
       <div className="h-fit">
-        <JumboTron />
+        <JumboTron
+          mobile={landingPageAssets.jumbotronMobile}
+          main={landingPageAssets.jumbotron}
+        />
       </div>
       {/* Marquee Section */}
       <Marquee data={clients} />
       {/* Expertise Section */}
-      <ExpertiseSection />
+      <ExpertiseSection
+        socialMedia={landingPageAssets.socialmediamarketing}
+        branding={landingPageAssets.branding}
+        product={landingPageAssets.product}
+      />
       {/* Portfolio Section */}
       <PortfolioSection data={portfolios} />
       {/* FORM SECTION */}
