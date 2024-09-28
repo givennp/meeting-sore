@@ -28,7 +28,7 @@ const PortfolioSection = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPage, setMaxPage] = useState(5);
 
-  console.log(data);
+  // console.log(data);
   
 
   const swiperRef = useRef();

@@ -23,7 +23,7 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
     offset: ["0.2 1", "1 1"], //["0 0.8", "0.8 1"] ["0.2 1", "1 1"]
   });
 
-     console.log("data", data);
+    //  console.log("data", data);
 //   console.log(`${JSON.stringify(data?.mediaGroupA, null, 2)}`);
   //   console.log(`${BASE_URL}${data?.jumboTronMedia.url}`);
 

@@ -2,15 +2,17 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 const Marquee = ({data}) => {
-  
+
   const renderLogos = () => {
     if (!data) return 
       return data.map((val, i) => {
+        console.log(val);
+        
         return (
           <Image
             key={i}
-            width={120}
-            height={5}
+            width={130}
+            height={2}
             src={`${val}`}
             alt=""
           />

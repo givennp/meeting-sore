@@ -13,7 +13,7 @@ const Home = async () => {
   // let portfolios, clients;
 
   const portfolios = await getPortfolios()
-  console.log(portfolios);
+  // console.log(portfolios);
 
 
   const clients = await getClients()
