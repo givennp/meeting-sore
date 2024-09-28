@@ -45,7 +45,7 @@ body::before {
   /* background-color: transparent; */
   z-index: 50;
   backface-visibility: visible;
-  -webkit-backface-visibility: visible
+  -webkit-backface-visibility: visible;
 }
 
 .menu {
