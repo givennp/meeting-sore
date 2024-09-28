@@ -11,7 +11,7 @@ const useIntersectionObserverPortfolio = (sectionId, setActiveSection) => {
     const callback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+          setActiveSection(entry?.target.id);
         } else {
           setActiveSection(""); // Reentered from the top
         }

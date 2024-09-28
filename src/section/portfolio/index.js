@@ -19,13 +19,17 @@ import "./portfolio.css";
 // import required modules
 import { FreeMode, Pagination, A11y, Navigation } from "swiper/modules";
 import Image from "next/image";
+import  BASE_URL  from "@/config";
 
 const { default: PortfolioCard } = require("@/components/PortfolioCard");
 
-const PortfolioSection = () => {
+const PortfolioSection = ({ data }) => {
   const [activeSection, setActiveSection] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [maxPage, setMaxPage] = useState(5);
+
+  console.log(data);
+  
 
   const swiperRef = useRef();
   const [active, setActive] = useState("All");
@@ -33,39 +37,6 @@ const PortfolioSection = () => {
   const [mobilePagination, setMobilePagination] = useState("");
   const [nextPageButton, setNextPageButton] = useState("");
   const [prevPageButton, setPrevPageButton] = useState("");
-
-  const data = [
-    {
-      image: betterfly,
-      name: "Betterfly Travel",
-      type: "Social Media",
-    },
-    {
-      image: mogano,
-      name: "Mogano",
-      type: "Branding",
-    },
-    {
-      image: pwdk,
-      name: "Thrive with Purwadhika",
-      type: "Production",
-    },
-    {
-      image: betterfly,
-      name: "Betterfly Travel",
-      type: "Social Media",
-    },
-    {
-      image: mogano,
-      name: "Mogano",
-      type: "Branding",
-    },
-    {
-      image: pwdk,
-      name: "Thrive with Purwadhika",
-      type: "Production",
-    },
-  ];
 
   useIntersectionObserver("portfolio", setActiveSection);
 
@@ -87,17 +58,18 @@ const PortfolioSection = () => {
 
   const renderData = () => {
     // data.filter((val.type) => {})
-    let filteredData = data
+    let filteredData = data;
     if (active != "All") {
       filteredData = data.filter((val) => val.type === active);
     }
-    return filteredData.map((portfolio, i) => {
+    return filteredData?.map((portfolio, i) => {
       return (
         <SwiperSlide key={i}>
           <PortfolioCard
-            image={portfolio.image}
-            name={portfolio.name}
-            type={portfolio.type}
+            image={`${portfolio.portfolioThumbnail}`}
+            name={portfolio?.name}
+            type={portfolio?.type.toUpperCase()}
+            slug={portfolio?.slug}
             key={i + 10}
           />
         </SwiperSlide>
@@ -167,6 +139,7 @@ const PortfolioSection = () => {
                 <Image
                   src={leftArrow}
                   // onClick={handlePrev}
+                  alt=""
                 />
               </div>
               <div className="mx-2 w-12 text-center swiper-pagination">
@@ -176,6 +149,7 @@ const PortfolioSection = () => {
                 <Image
                   src={rightArrow}
                   //  onClick={handleNext}
+                  alt=""
                 />
               </div>
             </div>
@@ -223,13 +197,13 @@ const PortfolioSection = () => {
       {isMobile && (
         <div className="max-md:flex hidden items-center justify-between w-full container pt-12">
           <div className="prevPage cursor-pointer">
-            <Image src={leftArrow} onClick={handlePrev} />
+            <Image src={leftArrow} onClick={handlePrev} alt="" />
           </div>
           <div className="mx-2 w-12 text-center swiper-pagination">
             {/* {currentPage} / {maxPage} */}
           </div>
           <div className="nextPage cursor-pointer">
-            <Image src={rightArrow} onClick={handleNext} />
+            <Image src={rightArrow} onClick={handleNext} alt="" />
           </div>
         </div>
       )}

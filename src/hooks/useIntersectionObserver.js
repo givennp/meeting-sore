@@ -10,8 +10,8 @@ const useIntersectionObserver = (sectionId, setActiveSection) => {
 
     const callback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.boundingClientRect.top < entry.rootBounds.top || entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+        if (entry.boundingClientRect.top < entry?.rootBounds?.top || entry?.isIntersecting) {
+          setActiveSection(entry?.target.id);
         } else {
           setActiveSection(""); // Reentered from the top
         }

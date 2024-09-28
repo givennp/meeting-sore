@@ -25,7 +25,7 @@ const Footer = () => {
               ABOUT US
             </Button>
             <Button
-              link="#expertise"
+              link={`${homePagePath}#expertise`}
               className="text-body-01 max-md:text-body-04"
             >
               EXPERTISE

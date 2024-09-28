@@ -46,6 +46,11 @@ body::before {
   z-index: 50;
 }
 
+.menu {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
 html {
   scroll-behavior: smooth;
 }
