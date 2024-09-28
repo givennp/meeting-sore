@@ -6,7 +6,6 @@ const Marquee = ({data}) => {
   const renderLogos = () => {
     if (!data) return 
       return data.map((val, i) => {
-        console.log(val);
         
         return (
           <Image
