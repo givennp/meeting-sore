@@ -25,17 +25,17 @@ const Home = async () => {
     <>
       <div className="h-fit">
         <JumboTron
-          mobile={landingPageAssets.jumbotronMobile}
-          main={landingPageAssets.jumbotron}
+          mobile={landingPageAssets?.jumbotronMobile}
+          main={landingPageAssets?.jumbotron}
         />
       </div>
       {/* Marquee Section */}
       <Marquee data={clients} />
       {/* Expertise Section */}
       <ExpertiseSection
-        socialMedia={landingPageAssets.socialmediamarketing}
-        branding={landingPageAssets.branding}
-        product={landingPageAssets.product}
+        socialMedia={landingPageAssets?.socialmediamarketing}
+        branding={landingPageAssets?.branding}
+        product={landingPageAssets?.product}
       />
       {/* Portfolio Section */}
       <PortfolioSection data={portfolios} />
