@@ -1,48 +1,51 @@
-"use client"
+"use client";
 import Image from "next/image";
 import image1 from "../../public/jalanan.jpeg";
 import logo from "../../public/logo.svg";
 import parallaxImage from "../../public/jumboTron.png";
 
-const JumboTron = ({mobile, main}) => {
+const JumboTron = ({ mobile, main }) => {
   return (
     <div className="">
-      <div className=" h-[72px] bg-black sticky top-0" />
-      <Image
-        src={main}
-        alt=""
-        width={1920}
-        height={1080}
-        className="max-md:hidden w-full h-screen object-cover sticky top-0 -z-10 bg-black"
-        // style={{
-        //   width: "100%",
-        //   height: "100vh",
-        //   objectFit: "cover",
-        //   position: "sticky",
-        //   top: "0",
-        //   zIndex: "-10",
-        //   background: "#000",
-        // }}
-      />
-      <Image
-        src={mobile}
-        alt=""
-        width={300}
-        height={700}
-        className="md:hidden w-full h-screen object-cover sticky top-0 -z-10 bg-black"
-        // style={{
-        //   width: "100%",
-        //   height: "100vh",
-        //   objectFit: "cover",
-        //   position: "sticky",
-        //   top: "0",
-        //   zIndex: "-10",
-        //   background: "#000",
-        // }}
-      />
+      <div className="sticky top-0 -z-50">
+        <div className="h-[72px] bg-black" />
+        <Image
+          src={main}
+          alt=""
+          width={1920}
+          height={1080}
+          className="max-md:hidden w-full h-screen object-cover sticky top-0 -z-50 bg-black"
+          // style={{
+          //   width: "100%",
+          //   height: "100vh",
+          //   objectFit: "cover",
+          //   position: "sticky",
+          //   top: "0",
+          //   zIndex: "-10",
+          //   background: "#000",
+          // }}
+        />
+        <Image
+          src={mobile}
+          alt=""
+          width={360}
+          height={800}
+          className="md:hidden w-full h-screen object-cover sticky top-0 -z-10 bg-black"
+          // style={{
+          //   width: "100%",
+          //   height: "100vh",
+          //   objectFit: "cover",
+          //   position: "sticky",
+          //   top: "0",
+          //   zIndex: "-10",
+          //   background: "#000",
+          // }}
+        />
+      </div>
+
       <section
         id="about-us"
-        className="bg-black h-[100vh] max-md:min-h-[592px] sm:max-md:h-[700px] max-sm:h-[304px] md:pl-16 flex max-md:flex-col max-md:w-full "
+        className="bg-black h-[100vh] max-md:min-h-[592px] sm:max-md:h-[700px] max-sm:h-[304px] md:pl-16 flex max-md:flex-col max-md:w-full z-50"
       >
         <div className="h-full w-full flex items-center">
           <div className=" md:text-title-03 max-sm:text-heading-03 sm:max-md:text-heading-01 max-md:h-[304px] text-gray-100 md:mr-16 flex-auto w-[300px] max-md:w-full max-md:pt-10 max-md:container max-md:mb-16">

@@ -12,7 +12,7 @@ const FormSection = ({ ref }) => {
   const [inputObjective, setInputObjective] =  useState("")
 
   const onSubmit = () => {
-    let msg = `Name : ${inputName}\nPhone Number : ${inputPhoneNum}\nBrand Name : ${inputBrand}\nObjective : ${inputObjective}`;
+    let msg = `Hello Meetingsore! I would love to get a free social media audit. My name is ${inputName}, and you can reach me at ${inputPhoneNum}. I represent ${inputBrand}, and our goal is to ${inputObjective}. Looking forward to your insights!`;
 
     const preFilledText = encodeURIComponent(msg);
     window.open(`https://wa.me/6282146517946/?text=${preFilledText}`);

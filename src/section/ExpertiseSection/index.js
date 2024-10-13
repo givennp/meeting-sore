@@ -38,7 +38,7 @@ const ExpertiseSection = ({ socialMedia, branding, product }) => {
                 image={socialMedia}
               />
               <ExpertiseCard number="2" title="Branding" image={branding} />
-              <ExpertiseCard number="3" title="Product" image={product} />
+              <ExpertiseCard number="3" title="Production" image={product} />
             </div>
           </motion.div>
         </div>
@@ -52,7 +52,7 @@ const ExpertiseSection = ({ socialMedia, branding, product }) => {
               image={socialMedia}
             />
             <ExpertiseCard number="2" title="Branding" image={branding} />
-            <ExpertiseCard number="3" title="Product" image={product} />
+            <ExpertiseCard number="3" title="Production" image={product} />
           </div>
         </div>
       </div>

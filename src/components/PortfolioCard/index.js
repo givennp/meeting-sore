@@ -1,10 +1,5 @@
 "use client";
-import Image from "next/image";
-import portfolio from "../../../public/portfolio.jpg";
-import triangleIcon from "../../../public/triangle.svg";
 import "./portfolio.module.css";
-import { useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 const PortfolioCard = ({image, name, type, slug}) => {
@@ -20,8 +15,8 @@ const PortfolioCard = ({image, name, type, slug}) => {
         href={`/portfolios/${slug}`}
         className="lg:h-[520px] h-[330px] md:h-[450px] group w-[256px] md:w-[320px] lg:w-[414px]"
       >
-        <div className="w-full h-[276px] md:h-[340px] sm:h-[276px] lg:h-[448px] lg:group-hover:h-[376px] md:group-hover:h-[268px] max-md:group-hover:h-[224px] duration-[400ms] group-hover:h-[376px] relative overflow-hidden mb-4">
-          <div className="absolute inset-0 transition-transform duration-[400ms] group-hover:scale-125">
+        <div className="w-full h-[276px] md:h-[340px] sm:h-[276px] lg:h-[448px] lg:group-hover:h-[376px] md:group-hover:h-[268px] duration-[400ms] relative overflow-hidden mb-4">
+          <div className="absolute inset-0 transition-transform duration-[400ms] md:group-hover:scale-125">
             <img
               src={image}
               // layout="fill"

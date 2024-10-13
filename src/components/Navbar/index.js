@@ -26,7 +26,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }} // Fade duration
-            className="menu text-center w-full h-full justify-center font-medium  text-heading-01 fixed top-0 backdrop-blur-lg z-50"
+            className="menu text-center w-full h-full justify-center font-medium  text-heading-01 fixed top-0 backdrop-blur-sm z-50"
           >
             <div className=" h-[64px] w-full absolute flex justify-between items-center">
               <div className="container w-full flex justify-between items-center">
@@ -55,16 +55,28 @@ const Navbar = () => {
             />
 
             <div className="gap-6 flex flex-col w-full h-full text-center justify-center">
-              <Link href={`${homePagePath}#about-us`} onClick={() => setIsOpen(false)}>
+              <Link
+                href={`${homePagePath}#about-us`}
+                onClick={() => setIsOpen(false)}
+              >
                 ABOUT
               </Link>
-              <Link href={`${homePagePath}#expertise`} onClick={() => setIsOpen(false)}>
+              <Link
+                href={`${homePagePath}#expertise`}
+                onClick={() => setIsOpen(false)}
+              >
                 EXPERTISE
               </Link>
-              <Link href={`${homePagePath}#portfolio`} onClick={() => setIsOpen(false)}>
+              <Link
+                href={`${homePagePath}#portfolio`}
+                onClick={() => setIsOpen(false)}
+              >
                 PORTFOLIO
               </Link>
-              <Link href={`${homePagePath}contact`} onClick={() => setIsOpen(false)}>
+              <Link
+                href={`${homePagePath}contact`}
+                onClick={() => setIsOpen(false)}
+              >
                 CONTACT US
               </Link>
             </div>
@@ -126,7 +138,7 @@ const Navbar = () => {
           </Link>
           <div className="flex gap-x-6 max-md:hidden text-white">
             <Button link={`${homePagePath}#about-us`}>ABOUT</Button>
-            <Button link={`${homePagePath}#expertise`}>EXEPERTISE</Button>
+            <Button link={`${homePagePath}#expertise`}>EXPERTISE</Button>
             <Button link={`${homePagePath}#portfolio`}>PORTFOLIO</Button>
             <Button link={`${homePagePath}contact`}>CONTACT US</Button>
           </div>

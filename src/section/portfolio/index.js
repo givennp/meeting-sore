@@ -4,12 +4,8 @@ import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 import { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import leftArrow from "../../../public/leftArrow.png";
-import rightArrow from "../../../public/rightArrow.png";
-import betterfly from "../../../public/betterfly-travel.png";
-import mogano from "../../../public/mogano.png";
-import pwdk from "../../../public/pwdk.png";
-
+import leftArrow from "../../../public/leftArrow.svg";
+import rightArrow from "../../../public/rightArrow.svg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";

@@ -6,6 +6,7 @@ import useIntersectionObserverPortfolio from "@/hooks/useIntersectionObserverPor
 import { useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Button from "../Buttons/Button";
+import { neue_montreal } from "@/utils/fonts";
 
 const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
   const [activeSection, setActiveSection] = useState("");
@@ -33,7 +34,8 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
     <div
       className={`${
         activeSection === "change-bg" ? "bg-black" : "bg-transparent"
-      } duration-500`}
+      } ${neue_montreal} duration-500`}
+      style={{ fontFamily: "var(--neue-montreal)" }}
     >
       <div className="h-[72px] mb-14" />
       <div className="container max-md:flex max-md:flex-col max-md: text-body-04 grid grid-cols-2 mb-14">
@@ -67,13 +69,13 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
         }}
       >
         <Image
-          src={`${data?.jumboTronMedia}`}
+          src={`${data?.jumboTronMedia || ""}`}
           className="object-cover w-full h h-full max-sm:hidden"
           fill={true}
           alt=""
         />
         <Image
-          src={`${data?.jumboTronMobile}`}
+          src={`${data?.jumboTronMobile || ""}`}
           className="object-cover w-full h h-full sm:hidden"
           fill={true}
           alt=""
@@ -86,7 +88,11 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
           <div className="text-subheading-05 max-md:text-caption-01 font-medium text-neutral-200 mb-2">
             SERVICE
           </div>
-          <div className="text-body-04 max-md:text-body-05 w-[200px]">
+          <div
+            className={`${
+              activeSection === "change-bg" ? "text-white" : ""
+            } text-body-04 max-md:text-body-05 w-[200px]`}
+          >
             {data?.service}
           </div>
         </div>

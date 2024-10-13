@@ -1,11 +1,11 @@
 import axiosInstance from "../axiosInstance";
 
 const getPortfolios = async () => {
-  const FETCH_ALL = `query getClientsLogo {
+  const FETCH_ALL = `query getPortfolios {
   portfolios {
     nodes {
       portfolioFields {
-        portfolioThumbnail {
+        portfoliothumbnail {
           node {
             sourceUrl
           }
@@ -32,7 +32,7 @@ let output
       return {
         name: fields?.name,
         type: fields?.type,
-        portfolioThumbnail: fields?.portfolioThumbnail.node?.sourceUrl,
+        portfolioThumbnail: fields?.portfoliothumbnail?.node?.sourceUrl,
         slug: portfolio?.slug,
       };
     });
