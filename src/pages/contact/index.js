@@ -1,6 +1,6 @@
 "use client";
 
-import "../globals.css";
+import "../../app/globals.css"
 import image1 from "../../../public/jalanan.jpeg";
 import Image from "next/image";
 import Button from "@/components/Buttons/Button";
