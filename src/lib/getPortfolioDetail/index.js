@@ -19,52 +19,52 @@ const getPortfolioDetail = async () => {
         service
         portfoliothumbnail{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediaa{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediab{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediac{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediad{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediae{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediaf{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediag{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediah{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         mediai{
             node{
-                sourceUrl
+                mediaItemUrl
             }
         }
         jumbotronmedia{
@@ -115,15 +115,15 @@ const getPortfolioDetail = async () => {
         portfolioThumbnail: fields?.portfoliothumbnail?.node?.sourceUrl || null,
         jumboTronMedia: fields?.jumbotronmedia?.node?.sourceUrl || null,
         jumboTronMobile: fields?.jumbotronmobile?.node?.sourceUrl || null,
-        mediaA: fields?.mediaa?.node?.sourceUrl || null,
-        mediaB: fields?.mediab?.node?.sourceUrl || null,
-        mediaC: fields?.mediac?.node?.sourceUrl || null,
-        mediaD: fields?.mediad?.node?.sourceUrl || null,
-        mediaE: fields?.mediae?.node?.sourceUrl || null,
-        mediaF: fields?.mediaf?.node?.sourceUrl || null,
-        mediaG: fields?.mediag?.node?.sourceUrl || null,
-        mediaH: fields?.mediah?.node?.sourceUrl || null,
-        mediaI: fields?.mediai?.node?.sourceUrl || null,
+        mediaA: fields?.mediaa?.node?.mediaItemUrl || null,
+        mediaB: fields?.mediab?.node?.mediaItemUrl || null,
+        mediaC: fields?.mediac?.node?.mediaItemUrl || null,
+        mediaD: fields?.mediad?.node?.mediaItemUrl || null,
+        mediaE: fields?.mediae?.node?.mediaItemUrl || null,
+        mediaF: fields?.mediaf?.node?.mediaItemUrl || null,
+        mediaG: fields?.mediag?.node?.mediaItemUrl || null,
+        mediaH: fields?.mediah?.node?.mediaItemUrl || null,
+        mediaI: fields?.mediai?.node?.mediaItemUrl || null,
         achievementA: fields?.achievementa || null,
         achievementB: fields?.achievementb || null,
         achievementC: fields?.achievementc || null,
@@ -133,6 +133,7 @@ const getPortfolioDetail = async () => {
       };
     });
 
+    console.log(portfolioDetails);
     output = portfolioDetails;
   } catch (e) {
     console.log(e.message);

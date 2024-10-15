@@ -94,15 +94,15 @@ const Navbar = () => {
             <Image
               src={Logo}
               // layout="fixed"
-              className="mix-blend-difference w-[92px] h-[24px] max-md:w-[76px] max-md:h-[20px]"
+              className="mix-blend-difference w-[92px] h-[24px] max-md:w-[76px] max-md:h-[20px] max-md:hidden"
               alt="Logo"
             />
-            {/* <Image
+            <Image
               src={blackLogo}
               // layout="fixed"
-              className="mix-blend-difference w-[92px] h-[24px] max-md:w-[76px] max-md:h-[20px] md:block"
+              className="w-[92px] h-[24px] max-md:w-[76px] max-md:h-[20px] md:hidden"
               alt="Logo"
-            /> */}
+            />
           </Link>
           <div className="flex gap-x-6 max-md:hidden text-white">
             <Button link={`${homePagePath}#about-us`}>ABOUT</Button>

@@ -8,7 +8,7 @@ const JumboTron = ({ mobile, main }) => {
   return (
     <div className="">
       <div className="sticky top-0 -z-50">
-        <div className="h-[72px] bg-black" />
+        {/* <div className="h-[72px] bg-black" /> */}
         <Image
           src={main}
           alt=""
