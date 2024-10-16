@@ -2,3 +2,8 @@
 .group {
     animation-duration: 400ms;
 }
+
+.text{
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}

@@ -27,7 +27,7 @@ const PortfolioCard = ({image, name, type, slug}) => {
             />
           </div>
           <div className="absolute inset-0 flex opacity-0 justify-center items-center duration-[200ms] transition-all group-hover:opacity-100">
-            <div className="text-white text-body-02 max-md:text-body bg-white bg-opacity-20 max-h-fit max-w-fit backdrop-blur-md rounded-[56px] px-2 py-1">
+            <div className="text text-white text-body-02 max-md:text-body bg-white bg-opacity-20 max-h-fit max-w-fit backdrop-blur-md rounded-[56px] px-2 py-1">
               VIEW PORTFOLIO
             </div>
           </div>
