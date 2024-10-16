@@ -11,37 +11,37 @@ import { useEffect, useState } from "react";
 import '../app/globals.css';
 
 
-const Home = () => {
-  const [portfolios, setPortfolios] = useState([]);
-  const [clients, setClients] = useState([]);
-  const [landingPageAssets, setLandingPageAssets] = useState(null);
-  const [loading, setLoading] = useState(true);
+const Home = ({ portfolios, clients, landingPageAssets }) => {
+  // const [portfolios, setPortfolios] = useState([]);
+  // const [clients, setClients] = useState([]);
+  // const [landingPageAssets, setLandingPageAssets] = useState(null);
+  // const [loading, setLoading] = useState(true);
 
-  // Fetch data on client side using useEffect
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const portfoliosData = await getPortfolios();
-        const clientsData = await getClients();
-        const landingPageAssetsData = await getLandingPageAssets();
+  // // Fetch data on client side using useEffect
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const portfoliosData = await getPortfolios();
+  //       const clientsData = await getClients();
+  //       const landingPageAssetsData = await getLandingPageAssets();
 
-        setPortfolios(portfoliosData);
-        setClients(clientsData);
-        setLandingPageAssets(landingPageAssetsData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false); // Mark loading as done
-      }
-    };
+  //       setPortfolios(portfoliosData);
+  //       setClients(clientsData);
+  //       setLandingPageAssets(landingPageAssetsData);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     } finally {
+  //       setLoading(false); // Mark loading as done
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-//   Show a loading spinner or placeholder while data is being fetched
-  if (loading) {
-    return 
-  }
+  // //   Show a loading spinner or placeholder while data is being fetched
+  // if (loading) {
+  //   return;
+  // }
 
   return (
     <>
@@ -68,5 +68,33 @@ const Home = () => {
     </>
   );
 };
+
+export const getServerSideProps = async () => {
+try {
+
+  const portfoliosData = await getPortfolios();
+  const clientsData = await getClients();
+  const landingPageAssetsData = await getLandingPageAssets();
+
+  return {
+    props: {
+      portfolios: portfoliosData || [], 
+      clients: clientsData || [],
+      landingPageAssets: landingPageAssetsData || null,
+    },
+  };
+} catch (error) {
+  console.error(error);
+
+  return {
+    props: {
+      portfolios: [],
+      clients: [],
+      landingPageAssets: null,
+    },
+  };
+}
+};
+
 
 export default Home;

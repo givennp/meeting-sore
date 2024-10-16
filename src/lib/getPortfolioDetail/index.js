@@ -133,7 +133,7 @@ const getPortfolioDetail = async () => {
       };
     });
 
-    console.log(portfolioDetails);
+    // console.log(portfolioDetails);
     output = portfolioDetails;
   } catch (e) {
     console.log(e.message);
