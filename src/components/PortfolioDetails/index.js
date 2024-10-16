@@ -125,7 +125,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaA}`} type="video/mp4" />
                   <source src={`${data?.mediaA}`} type="video/webm" />
                   Your browser does not support the video tag.
@@ -147,7 +154,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaB}`} type="video/mp4" />
                   <source src={`${data?.mediaB}`} type="video/webm" />
                   Your browser does not support the video tag.
@@ -169,7 +183,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaC}`} type="video/mp4" />
                   <source src={`${data?.mediaC}`} type="video/webm" />
                   Your browser does not support the video tag.
@@ -242,7 +263,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaD}`} type="video/mp4" />
                   <source src={`${data?.mediaD}`} type="video/webm" />
                   Your browser does not support the video tag.
@@ -291,7 +319,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaF}`} type="video/mp4" />
                   <source src={`${data?.mediaF}`} type="video/webm" />
                   Your browser does not support the video tag.
@@ -415,7 +450,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaG}`} type="video/mp4" />
                   <source src={`${data?.mediaG}`} type="video/webm" />
                   Your browser does not support the video tag.
@@ -436,7 +478,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaH}`} type="video/mp4" />
                   <source src={`${data?.mediaH}`} type="video/webm" />
                   Your browser does not support the video tag.
@@ -457,7 +506,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaI}`} type="video/mp4" />
                   <source src={`${data?.mediaI}`} type="video/webm" />
                   Your browser does not support the video tag.
