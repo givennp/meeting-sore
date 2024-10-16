@@ -263,7 +263,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               />
             ) : (
               <div>
-                <video width="100%" height="auto" controls>
+                <video
+                  width="100%"
+                  height="auto"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
                   <source src={`${data?.mediaE}`} type="video/mp4" />
                   <source src={`${data?.mediaE}`} type="video/webm" />
                   Your browser does not support the video tag.
