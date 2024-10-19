@@ -1,8 +1,10 @@
 "use client";
+import { useState } from "react";
 import "./portfolio.module.css";
 import Link from "next/link";
 
 const PortfolioCard = ({image, name, type, slug}) => {
+  const [isHovered, setIsHovered] = useState(false);
   // const router = useRouter();
 
   // const handleClick = () => {
@@ -26,8 +28,8 @@ const PortfolioCard = ({image, name, type, slug}) => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute inset-0 flex opacity-0 justify-center items-center duration-[200ms] transition-all group-hover:opacity-100">
-            <div className="text text-white text-body-02 max-md:text-body bg-white bg-opacity-20 max-h-fit max-w-fit backdrop-blur-md rounded-[56px] px-2 py-1">
+          <div className="absolute inset-0 flex justify-center items-center">
+            <div className="text text-white opacity-0 group-hover:opacity-100 duration-[200ms] transition-all text-body-02 max-md:text-body bg-white bg-opacity-20 max-h-fit max-w-fit backdrop-blur-md rounded-[56px] px-2 py-1">
               VIEW PORTFOLIO
             </div>
           </div>
