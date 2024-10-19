@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/Logo_Only.svg?v=2" type="image/svg+xml" />
         <link
           rel="apple-touch-icon"
