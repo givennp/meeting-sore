@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import "./portfolio.module.css";
+import style from "./portfolio.module.css";
 import Link from "next/link";
 
 const PortfolioCard = ({image, name, type, slug}) => {
@@ -29,7 +29,9 @@ const PortfolioCard = ({image, name, type, slug}) => {
             />
           </div>
           <div className="absolute inset-0 flex justify-center items-center">
-            <div className="text text-white opacity-0 group-hover:opacity-100 duration-[200ms] transition-all text-body-02 max-md:text-body bg-white bg-opacity-20 max-h-fit max-w-fit backdrop-blur-md rounded-[56px] px-2 py-1">
+            <div
+              className={`${style.text} text-white opacity-0 group-hover:opacity-100 duration-[200ms] transition-all text-body-02 max-md:text-body bg-white bg-opacity-20 max-h-fit max-w-fit backdrop-blur-md rounded-[56px] px-2 py-1`}
+            >
               VIEW PORTFOLIO
             </div>
           </div>
