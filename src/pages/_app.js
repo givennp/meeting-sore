@@ -9,8 +9,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/Logo_Only.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/Logo_Only.svg" sizes="180x180" />
+        <link rel="icon" href="/Logo_Only.svg?v=2" type="image/svg+xml" />
+        <link
+          rel="apple-touch-icon"
+          href="/Logo_Only.svg?v=2"
+          sizes="180x180"
+        />
         <title>Meeting Sore</title>
         <meta
           name="description"
