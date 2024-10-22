@@ -35,9 +35,8 @@ const FormSection = ({ ref }) => {
               activeSection === "form-section" ? "text-white" : "text-black"
             }`}
           >
-            Let’s collaborate to grow your brand with
-            <br />
-            <span className="text-primary-brand ">a creative strategy</span>
+            Let’s collaborate to grow your brand with a
+            <span className="text-primary-brand ">{" "}creative strategy</span>
           </div>
         </div>
 
