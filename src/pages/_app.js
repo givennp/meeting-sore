@@ -10,10 +10,14 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/Logo_Only.svg?v=2" type="image/svg+xml" />
+        <link
+          rel="icon"
+          href="/meetingsore_logo_rounded.png?v=3"
+          type="image/png"
+        />
         <link
           rel="apple-touch-icon"
-          href="/Logo_Only.svg?v=2"
+          href="/meetingsore_logo_rounded.png?v=3"
           sizes="180x180"
         />
         <title>Meeting Sore</title>
