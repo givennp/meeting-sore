@@ -38,16 +38,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
       style={{ fontFamily: "var(--neue-montreal)" }}
     >
       <div className="h-[72px] mb-14" />
-      <div className="container max-md:flex max-md:flex-col max-md: text-body-04 grid grid-cols-2 mb-14">
-        <div className="max-md:mb-4">
-          <div className="max-md:mb-3 border w-fit px-3 py-1 rounded-3xl border-black text-body-04 max-md:text-caption-01">
-            {data?.type.toUpperCase()}
-          </div>
-          <div className="text-title-01 font-medium max-md:text-heading-01">
-            {data?.name}
-          </div>
+      <div className="container flex flex-col text-body-04 mb-14">
+        <div className="max-md:mb-3 border w-fit px-3 py-1 rounded-3xl border-black text-body-04 max-md:text-caption-01">
+          {data?.type.toUpperCase()}
         </div>
-        <div className="flex justify-end items-end max-md:text-body-05 text-body-03">
+        <div className="text-title-01 font-medium max-md:text-heading-01 max-md:mb-4 mb-6">
+          {data?.name}
+        </div>
+        <div className="max-md:text-body-05 text-body-03">
           {data?.shortDesc}
         </div>
       </div>
@@ -112,10 +110,10 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
       {/* END PROJECT DESCRIPTION */}
 
       {/* CANVAS 1 */}
-      <div className="container">
+      <div className={`container ${data?.resultTextContent ? "mb-44 max-md:mb-16" : ""}`}>
         {/* media 0 */}
         {data?.mediaA && (
-          <div className="w-full h-full mb-44 max-md:mb-16 relative">
+          <div className="w-full h-full mb-4 max-md:mb-2 relative">
             {!data?.mediaA.endsWith(".mp4") ? (
               <img
                 src={`${data?.mediaA}`}
@@ -144,7 +142,7 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
 
         {/* media 2 */}
         {data?.mediaB && (
-          <div className="w-full h-full mb-44 max-md:mb-16 relative">
+          <div className="w-full h-full mb-4 max-md:mb-2 relative">
             {!data?.mediaB.endsWith(".mp4") ? (
               <img
                 src={`${data?.mediaB}`}
@@ -172,7 +170,7 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
         )}
 
         {data?.mediaC && (
-          <div className="w-full h-full mb-44 max-md:mb-16 relative">
+          <div className="w-full h-full relative">
             {!data?.mediaC?.endsWith(".mp4") ? (
               <img
                 src={`${data?.mediaC}`}
@@ -205,54 +203,60 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
       <div className="container ">
         <div
           id="change-bg"
-          className="text-body-03 flex mb-44 gap-[136px] max-md:mb-16 max-md:block"
+          className={`text-body-03 flex ${
+            data?.resultTextContent ? "mb-44 max-md:mb-16" : ""
+          }  gap-[136px]  max-md:block`}
         >
-          <div className="max-md:mb-10">
-            <div className="text-subheading-05 max-md:text-caption-01 font-medium text-neutral-200 mb-2">
-              RESULTS
-            </div>
-            <div
-              className={`${
-                activeSection === "change-bg" ? "text-white" : ""
-              } text-body-02 max-md:text-body-05 w-[310px] h-[84px] max-md:h-auto`}
-            >
-              {data?.resultTextContent}
-            </div>
-          </div>
+          {data?.resultTextContent && (
+            <>
+              <div className="max-md:mb-10">
+                <div className="text-subheading-05 max-md:text-caption-01 font-medium text-neutral-200 mb-2">
+                  RESULTS
+                </div>
+                <div
+                  className={`${
+                    activeSection === "change-bg" ? "text-white" : ""
+                  } text-body-02 max-md:text-body-05 w-[310px] h-[84px] max-md:h-auto`}
+                >
+                  {data?.resultTextContent}
+                </div>
+              </div>
 
-          <div className="flex max-md:flex-col max-md:gap-10 w-full justify-between">
-            <div className="flex flex-col md:items-center md:justify-center">
-              <div className="text-title-02 max-md:text-heading-01 font-medium text-primary-brand">
-                {data?.resultValueA}
-              </div>
-              <div className="text-subheading-05 max-md:text-caption-01 text-neutral-200">
-                {data?.resultKeyA?.toUpperCase()} {/* toUpperCase */}
-              </div>
-            </div>
+              <div className="flex max-md:flex-col max-md:gap-10 w-full justify-between">
+                <div className="flex flex-col md:items-center md:justify-center">
+                  <div className="text-title-02 max-md:text-heading-01 font-medium text-primary-brand">
+                    {data?.resultValueA}
+                  </div>
+                  <div className="text-subheading-05 max-md:text-caption-01 text-neutral-200">
+                    {data?.resultKeyA?.toUpperCase()} {/* toUpperCase */}
+                  </div>
+                </div>
 
-            <div className="flex flex-col md:items-center md:justify-center">
-              <div className="text-title-02 font-medium text-primary-brand max-md:text-heading-01">
-                {data?.resultValueB}
-              </div>
-              <div className="text-subheading-05 text-neutral-200 max-md:text-caption-01">
-                {data?.resultKeyB?.toUpperCase()} {/* toUpperCase */}
-              </div>
-            </div>
+                <div className="flex flex-col md:items-center md:justify-center">
+                  <div className="text-title-02 font-medium text-primary-brand max-md:text-heading-01">
+                    {data?.resultValueB}
+                  </div>
+                  <div className="text-subheading-05 text-neutral-200 max-md:text-caption-01">
+                    {data?.resultKeyB?.toUpperCase()} {/* toUpperCase */}
+                  </div>
+                </div>
 
-            <div className="flex flex-col md:items-center md:justify-center">
-              <div className="text-title-02 font-medium text-primary-brand max-md:text-heading-01">
-                {data?.resultValueC}
+                <div className="flex flex-col md:items-center md:justify-center">
+                  <div className="text-title-02 font-medium text-primary-brand max-md:text-heading-01">
+                    {data?.resultValueC}
+                  </div>
+                  <div className="text-subheading-05 text-neutral-200 max-md:text-caption-01">
+                    {data?.resultKeyC?.toUpperCase()} {/* toUpperCase */}
+                  </div>
+                </div>
               </div>
-              <div className="text-subheading-05 text-neutral-200 max-md:text-caption-01">
-                {data?.resultKeyC?.toUpperCase()} {/* toUpperCase */}
-              </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
 
         {/* media 2 */}
         {data?.mediaD && data?.mediaD && (
-          <div className="w-full h-full mb-44 max-md:mb-16">
+          <div className="w-full h-full mb-4 max-md:mb-2">
             {!data?.mediaD?.endsWith(".mp4") ? (
               <img
                 src={`${data?.mediaD}`}
@@ -280,7 +284,7 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
           </div>
         )}
         {data?.mediaE && (
-          <div className="w-full h-full mb-44 max-md:mb-16">
+          <div className="w-full h-full mb-4 max-md:mb-2">
             {!data?.mediaE?.endsWith(".mp4") ? (
               <img
                 src={`${data?.mediaE}`}
@@ -308,7 +312,7 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
           </div>
         )}
         {data?.mediaF && (
-          <div className="w-full h-full mb-44 max-md:mb-16">
+          <div className="w-full h-full mb-4 max-md:mb-2">
             {!data?.mediaF?.endsWith(".mp4") ? (
               <img
                 src={`${data?.mediaF}`}
@@ -340,7 +344,7 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
         <div
           className={`${
             activeSection === "change-bg" ? "text-white" : ""
-          } flex flex-col gap-10 mb-[161px] max-md:mb-16`}
+          } flex flex-col ${data?.achievementA ? "mb-[161px] max-md:mb-16" : "" } gap-10 `}
         >
           {data?.achievementA && (
             <div className="flex text-heading-02 font-medium ">
