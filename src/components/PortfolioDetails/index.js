@@ -3,22 +3,20 @@ import Image from "next/image";
 import bullet from "../../../public/bullet.svg";
 import Footer from "@/components/Footer";
 import useIntersectionObserverPortfolio from "@/hooks/useIntersectionObserverPortfolio";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import Button from "../Buttons/Button";
 import { neue_montreal } from "@/utils/fonts";
 
 const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
   const [activeSection, setActiveSection] = useState("");
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const ref = useRef(null);
+  
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0.2 1", "1 1"], //["0 0.8", "0.8 1"] ["0.2 1", "1 1"]
+    offset: ["0.2 1", "1 1"],
   });
-
-    //  console.log("data", data);
-//   console.log(`${JSON.stringify(data?.mediaGroupA, null, 2)}`);
-  //   console.log(`${BASE_URL}${data?.jumboTronMedia.url}`);
 
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 300,
@@ -27,6 +25,22 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
   });
 
   const scale = useTransform(scaleY, [0, 1], ["80%", "100%"]);
+
+  useEffect(() => {
+     const handleResize = () => {
+       setScreenWidth(window.innerWidth);
+     };
+
+     window.addEventListener("resize", handleResize);
+     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const imageStyle = {
+      width: screenWidth <= 960 ? "24px" : "40px", 
+      height: screenWidth <= 960 ? "24px" : "40px", 
+      padding: screenWidth <= 960 ? "2px" : "8px",
+      marginRight: screenWidth <= 960 ? "8px" : "16px", 
+  };
 
   useIntersectionObserverPortfolio("change-bg", setActiveSection);
 
@@ -38,14 +52,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
       style={{ fontFamily: "var(--neue-montreal)" }}
     >
       <div className="h-[72px] mb-14" />
-      <div className="container flex flex-col text-body-04 mb-14">
+      <div className="container flex flex-col text-body-04 md:mb-14 mb-8">
         <div className="max-md:mb-3 border w-fit px-3 py-1 rounded-3xl border-black text-body-04 max-md:text-caption-01">
           {data?.type.toUpperCase()}
         </div>
         <div className="text-title-01 font-medium max-md:text-heading-01 max-md:mb-4 mb-6">
           {data?.name}
         </div>
-        <div className="max-md:text-body-05 text-body-03">
+        <div className="max-md:text-body-05 text-body-03 md:w-[50%]">
           {data?.shortDesc}
         </div>
       </div>
@@ -110,7 +124,11 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
       {/* END PROJECT DESCRIPTION */}
 
       {/* CANVAS 1 */}
-      <div className={`container ${data?.resultTextContent ? "mb-44 max-md:mb-16" : ""}`}>
+      <div
+        className={`container ${
+          data?.resultTextContent ? "mb-44 max-md:mb-16" : ""
+        }`}
+      >
         {/* media 0 */}
         {data?.mediaA && (
           <div className="w-full h-full mb-4 max-md:mb-2 relative">
@@ -341,106 +359,89 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
         )}
 
         {/* BULLET LIST */}
-        <div
-          className={`${
-            activeSection === "change-bg" ? "text-white" : ""
-          } flex flex-col ${data?.achievementA ? "mb-[161px] max-md:mb-16" : "" } gap-10 `}
-        >
-          {data?.achievementA && (
-            <div className="flex text-heading-02 font-medium ">
-              <Image
-                src={bullet}
-                className="animate-spin max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  padding: "8px",
-                  marginRight: "16px",
-                }}
-                alt=""
-              />
-              <div className="max-md:text-subheading-04 text-heading-02">
-                {data?.achievementA}
-              </div>
+        {data?.achievementA && (
+          <div className="md:my-[161px] my-16">
+            <div className="text-subheading-05 max-md:text-caption-01 font-medium text-neutral-200 mb-6">
+              ACHIEVEMENTS
             </div>
-          )}
-
-          {data?.achievementB && (
-            <div className="flex text-heading-02 font-medium ">
-              <Image
-                src={bullet}
-                className="animate-spin-counter max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  padding: "8px",
-                  marginRight: "16px",
-                }}
-                alt=""
-              />
-              <div className="max-md:text-subheading-04 text-heading-02">
-                {data?.achievementB}
-              </div>
+            <div
+              className={`${activeSection === "change-bg" ? "text-white" : ""} flex flex-col gap-10 `}
+            >
+              {data?.achievementA && (
+                <div className="flex text-heading-02 font-medium ">
+                  <Image
+                    src={bullet}
+                    className="animate-spin max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
+                    style={imageStyle}
+                    alt=""
+                  />
+                  <div className="max-md:text-subheading-04 text-heading-02">
+                    {data?.achievementA}
+                  </div>
+                </div>
+              )}
+              {data?.achievementB && (
+                <div className="flex text-heading-02 font-medium ">
+                  <Image
+                    src={bullet}
+                    className="animate-spin-counter max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
+                    style={imageStyle}
+                    alt=""
+                  />
+                  <div className="max-md:text-subheading-04 text-heading-02">
+                    {data?.achievementB}
+                  </div>
+                </div>
+              )}
+              {data?.achievementC && (
+                <div className="flex text-heading-02 font-medium ">
+                  <Image
+                    src={bullet}
+                    className="animate-spin max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
+                    style={imageStyle}
+                    alt=""
+                  />
+                  <div className="max-md:text-subheading-04 text-heading-02">
+                    {data?.achievementC}
+                  </div>
+                </div>
+              )}
+              {data?.achievementD && (
+                <div className="flex text-heading-02 font-medium ">
+                  <Image
+                    src={bullet}
+                    className="animate-spin-counter max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
+                    style={imageStyle}
+                    alt=""
+                  />
+                  <div className="max-md:text-subheading-04 text-heading-02">
+                    {data?.achievementD}
+                  </div>
+                </div>
+              )}
+              {data?.achievementE && (
+                <div className="flex text-heading-02 font-medium ">
+                  <Image
+                    src={bullet}
+                    className="animate-spin-counter max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      padding: "8px",
+                      marginRight: "16px",
+                    }}
+                    alt=""
+                  />
+                  <div className="max-md:text-subheading-04 text-heading-02">
+                    {data?.achievementE}
+                  </div>
+                </div>
+              )}
             </div>
-          )}
-
-          {data?.achievementC && (
-            <div className="flex text-heading-02 font-medium ">
-              <Image
-                src={bullet}
-                className="animate-spin max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  padding: "8px",
-                  marginRight: "16px",
-                }}
-                alt=""
-              />
-              <div className="max-md:text-subheading-04 text-heading-02">
-                {data?.achievementC}
-              </div>
-            </div>
-          )}
-
-          {data?.achievementD && (
-            <div className="flex text-heading-02 font-medium ">
-              <Image
-                src={bullet}
-                className="animate-spin-counter max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  padding: "8px",
-                  marginRight: "16px",
-                }}
-                alt=""
-              />
-              <div className="max-md:text-subheading-04 text-heading-02">
-                {data?.achievementD}
-              </div>
-            </div>
-          )}
-          {data?.achievementE && (
-            <div className="flex text-heading-02 font-medium ">
-              <Image
-                src={bullet}
-                className="animate-spin-counter max-md:w-5 max-md:h-5 max-md:p-1 p-2 max-md:mr-2 mr-4 w-10 h-10"
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  padding: "8px",
-                  marginRight: "16px",
-                }}
-                alt=""
-              />
-              <div className="max-md:text-subheading-04 text-heading-02">
-                {data?.achievementE}
-              </div>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
+
       <div className="flex flex-col gap-2 md:gap-4">
         {data?.mediaG && (
           <div className="w-full h-full">
