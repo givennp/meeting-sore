@@ -10,7 +10,7 @@ import { neue_montreal } from "@/utils/fonts";
 
 const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
   const [activeSection, setActiveSection] = useState("");
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(null);
   const ref = useRef(null);
   
   const { scrollYProgress } = useScroll({
@@ -27,12 +27,14 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
   const scale = useTransform(scaleY, [0, 1], ["80%", "100%"]);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
      const handleResize = () => {
        setScreenWidth(window.innerWidth);
      };
 
      window.addEventListener("resize", handleResize);
      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
 
   const imageStyle = {
