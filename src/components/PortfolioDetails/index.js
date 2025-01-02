@@ -12,7 +12,6 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
   const [activeSection, setActiveSection] = useState("");
   const [screenWidth, setScreenWidth] = useState(null);
   const ref = useRef(null);
-  
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0.2 1", "1 1"],
@@ -82,18 +81,52 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
           // delay: 0.1, // Add a slight delay before starting the effect ${process.env.STRAPI_BASE_URL}
         }}
       >
-        <Image
-          src={`${data?.jumboTronMedia || ""}`}
-          className="object-cover w-full h h-full max-sm:hidden"
-          fill={true}
-          alt=""
-        />
-        <Image
-          src={`${data?.jumboTronMobile || ""}`}
-          className="object-cover w-full h h-full sm:hidden"
-          fill={true}
-          alt=""
-        />
+        {!data?.jumboTronMedia.endsWith(".mp4") ? (
+          <>
+            <Image
+              src={`${data?.jumboTronMedia || ""}`}
+              className="object-cover w-full h h-full max-sm:hidden"
+              fill={true}
+              alt=""
+            />
+            <Image
+              src={`${data?.jumboTronMobile || ""}`}
+              className="object-cover w-full h h-full sm:hidden"
+              fill={true}
+              alt=""
+            />
+          </>
+        ) : (
+          <div>
+            <video
+              width="100%"
+              height="auto"
+              className="object-cover w-full h h-full max-sm:hidden"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={data?.jumboTronMedia} type="video/mp4" />
+              <source src={data?.jumboTronMedia} type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+
+            <video
+              width="100%"
+              height="auto"
+              className="object-cover w-full h h-full sm:hidden"
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={data?.jumboTronMobile} type="video/mp4" />
+              <source src={data?.jumboTronMobile} type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        )}
       </motion.div>
 
       {/* PROJECT DESCRIPTION */}
@@ -367,7 +400,9 @@ const PortfolioDetails = ({ data, nextPortfolio, prevPortfolio }) => {
               ACHIEVEMENTS
             </div>
             <div
-              className={`${activeSection === "change-bg" ? "text-white" : ""} flex flex-col gap-10 `}
+              className={`${
+                activeSection === "change-bg" ? "text-white" : ""
+              } flex flex-col gap-10 `}
             >
               {data?.achievementA && (
                 <div className="flex text-heading-02 font-medium ">
