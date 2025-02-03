@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import image1 from "../../public/jalanan.jpeg";
+import image1 from "../../public/landing-page.jpg";
 import logo from "../../public/logo.svg";
 import parallaxImage from "../../public/jumboTron.png";
 
@@ -60,6 +60,12 @@ const JumboTron = ({ mobile, main }) => {
             src={image1}
             alt="Descriptive alt text"
             className="h-full w-[406px] max-md:w-full object-cover"
+            style={{
+              WebkitMaskImage:
+                "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)",
+              maskImage:
+                "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)",
+            }}
           />
           <Image
             src={logo}

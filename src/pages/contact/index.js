@@ -1,7 +1,7 @@
 "use client";
 
-import "../../app/globals.css"
-import image1 from "../../../public/jalanan.jpeg";
+import "../../app/globals.css";
+import image1 from "../../../public/contact-us.jpg";
 import Image from "next/image";
 import Button from "@/components/Buttons/Button";
 import { useEffect } from "react";
