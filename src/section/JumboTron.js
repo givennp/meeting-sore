@@ -59,7 +59,7 @@ const JumboTron = ({ mobile, main }) => {
         className="bg-black h-[100vh] max-md:min-h-[592px] sm:max-md:h-[700px] max-sm:h-[304px] md:pl-16 flex max-md:flex-col max-md:w-full z-50"
       >
         <div className="h-full w-full flex items-center">
-          <div className=" md:text-title-03 max-sm:text-heading-03 sm:max-md:text-heading-01 max-md:h-[304px] text-gray-100 md:mr-16 flex-auto w-[300px] max-md:w-full max-md:pt-10 max-md:container max-md:mb-16">
+          <div className=" md:text-title-03 max-sm:text-heading-03 sm:max-md:text-heading-01 max-md:h-[304px] text-gray-100 md:mr-16 flex-auto w-[300px] max-md:w-full max-md:pt-10 max-md:container max-md:mb-16 content-center">
             Jakarta & Bali based{" "}
             <span className="text-primary-brand">creative studio</span> with
             years of experience helping brands achieve their goals.
