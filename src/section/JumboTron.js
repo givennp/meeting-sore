@@ -60,10 +60,9 @@ const JumboTron = ({ mobile, main }) => {
       >
         <div className="h-full w-full flex items-center">
           <div className=" md:text-title-03 max-sm:text-heading-03 sm:max-md:text-heading-01 max-md:h-[304px] text-gray-100 md:mr-16 flex-auto w-[300px] max-md:w-full max-md:pt-10 max-md:container max-md:mb-16">
-            Jakarta & Bali based boutique{" "}
-            <span className="text-primary-brand">creative studio</span> who
-            helps brands stand out through stunning visual design and compelling
-            copywriting, leaving a lasting impression.
+            Jakarta & Bali based{" "}
+            <span className="text-primary-brand">creative studio</span> with
+            years of experience helping brands achieve their goals.
           </div>
         </div>
         <div className="flex-1 md:min-w-[406px] max-md:w-screen max-md:h-[184px] flex justify-end relative">
