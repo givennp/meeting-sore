@@ -1,10 +1,21 @@
 "use client";
 import Image from "next/image";
-import image1 from "../../public/landing-page.jpg";
+import image1 from "../../public/Home_Page_-_Desktop.webp";
+import image2 from "../../public/Home_Page_-_Mobile.webp";
 import logo from "../../public/logo.svg";
 import parallaxImage from "../../public/jumboTron.png";
+import { useEffect, useState } from "react";
 
 const JumboTron = ({ mobile, main }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 960);
+    }
+  }, [isMobile]);
+
+  console.log(isMobile);
+
   return (
     <div className="">
       <div className="sticky top-0 -z-50">
@@ -56,17 +67,20 @@ const JumboTron = ({ mobile, main }) => {
           </div>
         </div>
         <div className="flex-1 md:min-w-[406px] max-md:w-screen max-md:h-[184px] flex justify-end relative">
-          <Image
-            src={image1}
-            alt="Descriptive alt text"
-            className="h-full w-[406px] max-md:w-full object-cover"
-            style={{
-              WebkitMaskImage:
-                "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)",
-              maskImage:
-                "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)",
-            }}
-          />
+          {isMobile ? (
+            <Image
+              src={image2}
+              alt="Descriptive alt text"
+              className="h-full w-[406px] max-md:w-full object-cover"
+            />
+          ) : (
+            <Image
+              src={image1}
+              alt="Descriptive alt text"
+              className="h-full w-[406px] max-md:w-full object-cover"
+            />
+          )}
+
           <Image
             src={logo}
             alt="Logo alt text"
